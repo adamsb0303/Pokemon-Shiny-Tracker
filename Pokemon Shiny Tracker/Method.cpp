@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "Pokemon.h"
 
+//initialization
 Method::Method() {
 	modifier = 1;
     base = 8192;
@@ -13,6 +14,7 @@ Method::Method() {
 	lure = false;
 }
 
+//Prints the methods from the array that was taken from the game that is being used
 void Method::printMethods(std::string methods[5]) {
 	for (int i = 0; i < 5; i++) {
 		if (methods[i].compare(" ") != 0)
@@ -22,23 +24,25 @@ void Method::printMethods(std::string methods[5]) {
 	}
 }
 
+//Sets Method Data for specified game
 void Method::setMethod(std::string method, Game currentGame) {
-    if (currentGame.generation >= 5)
+    if (currentGame.generation >= 5)//doubles shiny chances if its a gen 5 or higher game
         base = base/2;
-    if (method.substr(method.length() - 2, method.length() - 1).compare("S") == 0 && currentGame.generation >= 5)
+    if (method.substr(method.length() - 2, method.length() - 1).compare("S") == 0 && currentGame.generation >= 5)//checks file for tag specifying shiny charm
         shinyCharm = true;
-    if (currentGame.name.substr(0, 3).compare("Let") == 0) {
+    if (currentGame.name.substr(0, 3).compare("Let") == 0) {//checks for either of the lets go games and asks if a lure is being used
         char yn;
         std::cout << "Are you using a Lure? y/n\n";
         std::cin >> yn;
         yn = tolower(yn);
         lure = yn == 'y';
     }
-    if (shinyCharm)
+    if (shinyCharm)//adds shiny charm rates if user has a shiny charm
         modifier+= 2;
-    if (lure)
+    if (lure)//adds lure rates if user is using a lure
         modifier++;
 
+    //checks the method array from the given game and assigns the name and increases shiny chances of the Method being used
     if (method.compare("None") == 0)
         name = "None";
     else if (method.compare("Breeding with Shiny") == 0) {
@@ -47,7 +51,7 @@ void Method::setMethod(std::string method, Game currentGame) {
     }
     else if (method.compare("Masuda") == 0) {
         name = "Masuda";
-        if (currentGame.generation == 4)
+        if (currentGame.generation == 4)//checks generation, since shiny Masuda odds changed after gen 4
             modifier += 4;
         else
             modifier += 5;
@@ -62,8 +66,8 @@ void Method::setMethod(std::string method, Game currentGame) {
     }
     else if (method.compare("DexNav Chaining") == 0) {
         name = "DexNav Chaining";
-        std::cout << "What is the search level of your target pokemon?\n";
-        std::cin >> searchLevel;
+        std::cout << "What is the search level of your target pokemon?\n";//since Search Level can change in between uses of the application
+        std::cin >> searchLevel;                                          //the user is prompted to enter the current search level
         searchLevel -= 2;
     }
     else if (method.compare("SOS Chaining") == 0)
@@ -74,11 +78,12 @@ void Method::setMethod(std::string method, Game currentGame) {
         name = "Catch Combo";
     else if (method.compare("Total Encounters") == 0) {
         name = "Total Encounters";
-        std::cout << "Enter the number of enounters prior to this hunt. This value can be found in the pokedex.\n";
-        std::cin >> previousEncounters;
+        std::cout << "Enter the number of enounters prior to this hunt. This value can be found in the pokedex.\n";//since Total Encounters can change in between uses of the application
+        std::cin >> previousEncounters;                                                                            //the user is prompted to enter the current total encounters
     }
 }
 
+//The screen that the user sees during the shiny hunt
 void Method::shinyHunt(Pokemon pokemon) {
     pokemon.name[0] = toupper(pokemon.name[0]);
     char userInput = ' ';
@@ -111,17 +116,19 @@ void Method::shinyHunt(Pokemon pokemon) {
     }
 }
 
+//prints the odds in terms of 1/x
 void Method::generateOdds(double encounters) {
     if (name.compare("Radar Chaining") == 0) {
-        if (encounters >= 40)
+        if (encounters >= 40)//probablity doesn't increase after 39 encounters
             encounters = 39;
         std::cout <<  "Current Shiny Chance\n1/" << simpilifyFraction(static_cast<int>(((65535 / (8200 - encounters * 200)) + modifier - 1) * 10 + 0.5)/10, (65536 / (1 + (abs(base - 8196) / 4096)))) << "\n\n";
     }
     else if (name.compare("Chain Fishing") == 0) {
-        if (encounters >= 20)
+        if (encounters >= 20)//probability doesn't increase after 20 encounters.
             encounters = 20;
         std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + encounters*2, base) << "\n\n";
     }
+    //calculates points based of Search Level and calculates probability
     else if (name.compare("DexNav Chaining") == 0) {
         int searchPoints = searchLevel;
         double points = 0;
@@ -160,6 +167,7 @@ void Method::generateOdds(double encounters) {
         else
             std::cout << "Search Level\n" << searchLevel << "\nCurrent Shiny Chance\n1/" << simpilifyFraction(modifier, base) << "\n\n";
     }
+    //1-10 no change. 10-20 add 4 to modifier. 20-30 add 8. >30 add 12 
     else if (name.compare("SOS Chaining") == 0) {
         if (encounters >= 0 && encounters < 10)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier, base) << "\n\n";
@@ -170,9 +178,11 @@ void Method::generateOdds(double encounters) {
         else
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 12.0, base) << "\n\n";
     }
+    //Light years is to volatile of a quantity to try to calculate.
     else if (name.compare("Ultra Wormholes") == 0) {
         std::cout << "Assuming Light Year is 5,000 or higher\n1 Ring : 10%\n2 Rings : 19%\n3 Rings : 36%\n\n";
     }
+    //1-10 no change. 10-20 add 3 to modifier. 20-30 add 7. >30 add 11
     else if (name.compare("Catch Combo") == 0) {
         if(encounters < 10)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier, base) << "\n\n";
@@ -183,6 +193,7 @@ void Method::generateOdds(double encounters) {
         else if (encounters >= 30)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 11.0, base) << "\n\n";
     }
+    //1-50 no change. 50-100 add 1 to modifier. 100-200 add 2. 200-300 add 3. 300-500 add 4. >500 add 5
     else if (name.compare("Total Encounters") == 0) {
         int totalEncounters = previousEncounters + encounters;
         std::cout << totalEncounters << " Total Encounters\n";
@@ -199,11 +210,13 @@ void Method::generateOdds(double encounters) {
         else if (totalEncounters > 500)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 5.0, base) << "\n\n";
     }
+    //methods such as Masuda and None are caught here
     else {
         std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier, base) << "\n\n";
     }
 }
 
+//divides the denominator by the numerator to put the fraction in terms of 1/x
 int simpilifyFraction(double num, int den) {
     return den / num;
 }
