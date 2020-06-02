@@ -37,7 +37,8 @@ void Game::printGames(int pokemonGeneration) {
 }
 
 void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
-	for (int i = 0; i < 8; i++) {
+	bool created = false;
+	for (int i = 0; i < 8 && !created; i++) {
 		for (int j = 0; j < 6; j++) {
 			std::string currentGame = Games[i][j];
 			for (int k = 0; k < game.length(); k++) {
@@ -49,8 +50,15 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 				name = Games[i][j];
 				generation = i + 1;
 				generateMethods(generation, name, selectedPokemon);
+				created = true;
+				break;
 			}
 		}
+	}
+	char pause = ' ';
+	if (generation == 0) {
+		std::cout << "The game that you entered was not recognized.";
+		pause = getchar();
 	}
 }
 

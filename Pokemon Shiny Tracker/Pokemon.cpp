@@ -4,7 +4,7 @@
 #include "Pokemon.h"
 Pokemon::Pokemon() {
     name = "";
-    generation = 0;;
+    generation = 0;
     breedable = true;
     encounters = 0;
     game = "";
@@ -14,10 +14,13 @@ Pokemon::Pokemon() {
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {
+    char pause = ' ';
     inputName = "Pokedex/" + inputName + ".txt";
     std::ifstream Data(inputName.c_str());
     if (!Data.is_open()) {
         std::cout << "Pokemon not found.";
+        pause = getchar();
+        pause = getchar();
         exit(1);
     }
     std::string temp = "";

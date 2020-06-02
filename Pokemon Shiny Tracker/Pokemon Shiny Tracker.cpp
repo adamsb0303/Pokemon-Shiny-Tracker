@@ -5,45 +5,57 @@
 #include "Game.h"
 #include "Method.h"
 
-int main(){
-    std::string pokemonName;
-    std::cout << "Please enter the Pokemon that you would like to hunt.\n";
-    std::cin >> pokemonName;
-    for (int i = 0; i < pokemonName.length(); i++)
-        pokemonName[i] = tolower(pokemonName[i]);
-
-    //Display Previously Caught Shinies
-    if (pokemonName.compare("list") == 0) {
-        std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
-        std::string listShinies = "";
-        int shinyCount = 1;
-        if (caughtShinies.is_open()) {
-            while (getline(caughtShinies, listShinies)) {
-                std::cout << shinyCount << ". " << listShinies << "\n";
-                shinyCount++;
-            }
-        }
-        exit(0);
-    }
-    
+int main() {
     Pokemon selectedPokemon;
-    selectedPokemon.generatePokemonData(pokemonName);
+    char pause = ' ';
+    do {
+        std::string pokemonName;
+        std::cout << "Please enter the Pokemon that you would like to hunt.\n";
+        std::cin >> pokemonName;
+        if (pokemonName.length() > 11)
+            std::cout << "The Pokemon was not recognized.";
+        else {
+            //Display Previously Caught Shinies
+            if (pokemonName.compare("list") == 0) {
+                std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
+                std::string listShinies = "";
+                int shinyCount = 1;
+                if (caughtShinies.is_open()) {
+                    while (getline(caughtShinies, listShinies)) {
+                        std::cout << shinyCount << ". " << listShinies << "\n";
+                        shinyCount++;
+                    }
+                }
+                std::cout << "Press any key to exit...";
+                pause = getchar();
+                pause = getchar();
+                exit(0);
+            }
+
+            for (int i = 0; i < pokemonName.length(); i++)
+                pokemonName[i] = tolower(pokemonName[i]);
+            selectedPokemon.generatePokemonData(pokemonName);
+        }
+    } while (selectedPokemon.generation == 0);
+
+    
     
     Method currentMethod = Method();
     Game currentGame = Game();
     if (selectedPokemon.encounters == -1) {
-        char pause = ' ';
         do {
             system("CLS");
             currentGame.printGames(selectedPokemon.generation);
             std::string userGame = " ";
-            std::cout << "What game are you hunting in?\n\n";
+            std::cout << "\nWhat game are you hunting in?\n";
             pause = getchar();
             getline(std::cin, userGame);
-            currentGame.setCurrentGame(userGame, selectedPokemon);
-            if (currentGame.generation == 0) {
+            if (userGame.length() > 11) {
                 std::cout << "The game that you entered was not recognized.";
                 pause = getchar();
+            }
+            else {
+                currentGame.setCurrentGame(userGame, selectedPokemon);
             }
         } while (currentGame.generation == 0);
         

@@ -89,7 +89,6 @@ void Method::setMethod(std::string method, Game currentGame) {
 void Method::shinyHunt(Pokemon pokemon) {
     pokemon.name[0] = toupper(pokemon.name[0]);
     char userInput = ' ';
-    pokemon.encounters--;
     for (;;) {
         if (userInput != '1' && userInput != '2') {
             system("CLS");
@@ -98,9 +97,10 @@ void Method::shinyHunt(Pokemon pokemon) {
             Method::generateOdds(pokemon.encounters);
             std::cout << pokemon.encounters;
             userInput = getchar();
+            userInput = getchar();
             if (userInput == '3') {
-                pokemon.encounters = -2;
-                searchLevel -= 2;
+                pokemon.encounters = -1;
+                searchLevel -= 1;
                 continue;
             }
         }
