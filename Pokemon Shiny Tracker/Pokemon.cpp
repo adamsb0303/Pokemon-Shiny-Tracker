@@ -21,18 +21,46 @@ void Pokemon::generatePokemonData(std::string inputName) {
         exit(1);
     }
     std::string temp = "";
-    getline(Data, temp);
-    name = splitString(temp, 1, ',');
-    generation = std::stoi(splitString(temp, 2, ','));
-    breedable = splitString(temp, 3, ',').compare("true") == 0;
-    encounters = std::stoi(splitString(temp, 4, ',')) - 1;
-    game = splitString(temp, 5, ',');
-    method = splitString(temp, 6, ',');
-    evolutionStage = std::stoi(splitString(temp, 7, ','));
-    for (int i = 1; i <= evolutionStage; i++) {
-        family[i-1] = splitString(splitString(temp, 8 ,','), i, ' ');
+    int counter = 0;
+    while (getline(Data, temp)) {
+        switch (counter) {
+            case 0:
+                name = temp;
+                break;
+            case 1:
+                generation = std::stoi(temp);
+                break;
+            case 2:
+                breedable = temp.compare("true") == 0;
+                break;
+            case 3:
+                encounters = std::stoi(temp) - 1;
+                break;
+            case 4:
+                game = temp;
+                break;
+            case 5:
+                method = temp;
+                break;
+            case 6:
+                evolutionStage = std::stoi(temp);
+                break;
+            case 7:
+                for (int i = 0; i < 4; i++) 
+                    family[i] = splitString(temp, i + 1, ' ');
+                break;
+            case 8:
+                huntable = temp.compare("true") == 0;
+                break;
+            case 9:
+                for (int i = 0; i < 5; i++) 
+                    locations[i] = splitString(temp, i + 1, ' ');
+                break;
+            default:
+                break;
+        }
+        counter++;
     }
-    huntable = splitString(temp, 9, ',').compare("true") == 0;
     Data.close();
 }
 

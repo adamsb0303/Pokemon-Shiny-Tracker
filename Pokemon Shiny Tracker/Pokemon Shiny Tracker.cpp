@@ -28,7 +28,7 @@ int main(){
     
     Pokemon selectedPokemon;
     selectedPokemon.generatePokemonData(pokemonName);
-
+    
     Method currentMethod = Method();
     Game currentGame = Game();
     if (selectedPokemon.encounters == -1) {
@@ -45,8 +45,8 @@ int main(){
                 std::cout << "The game that you entered was not recognized.";
                 pause = getchar();
             }
-        } while(currentGame.generation == 0);
-
+        } while (currentGame.generation == 0);
+        
         int numMethod;
         std::string userMethod;
         do {
@@ -73,10 +73,9 @@ int main(){
         currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame);
     }
     else {
-        currentGame.setCurrentGame(selectedPokemon.game);
-        currentMethod.setMethod(selectedPokemon.method, currentGame);
+        //currentGame.setCurrentGame(selectedPokemon.game);
+       // currentMethod.setMethod(selectedPokemon.method, currentGame);
     }
-
     currentMethod.shinyHunt(selectedPokemon);
 }
 

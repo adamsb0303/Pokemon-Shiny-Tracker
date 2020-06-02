@@ -28,11 +28,15 @@ int main() {
                             "psyduck","golduck",
                             "mankey","primeape",
                             "growlithe", "arcanine",
-                            "poliwag","poliwhirl","poliwrath";
+                            "poliwag","poliwhirl","poliwrath",
                             };
-   for(int i = 0; i < 130; i++){
-      std::string filePath = list[i] + ".txt";
-      std::ofstream myFile(filePath.c_str());
-      myFile << list[i] << ",1,true,0, , ,0, ,true";
-   }
+   //for(int i = 0; i < 130; i++){
+      //std::string filePath = list[i] + ".txt";
+      //std::ofstream myFile(filePath.c_str());
+      //myFile << list[i] << ",1,true,0, , ,0, ,true";
+      std::ifstream myFile("bulbasaur.txt");
+      std::string line;
+      getline(myFile, line);
+      std::cout << line;
+   //}
 }

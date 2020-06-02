@@ -13,6 +13,7 @@ public:
 	int evolutionStage;
 	std::string family[4];
 	bool huntable;
+	std::string locations[5];
 
 	Pokemon();
 	void generatePokemonData(std::string inputName);
