@@ -12,6 +12,7 @@ public:
 	int modifier;
 	int base;
 	int previousEncounters;
+	int searchLevel;
 	bool shinyCharm;
 	bool lure;
 
