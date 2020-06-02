@@ -19,8 +19,10 @@ void Method::printMethods(std::string methods[5]) {
 	for (int i = 0; i < 5; i++) {
 		if (methods[i].compare(" ") != 0)
 			std::cout << i + 1 << ". " << methods[i] << "\n";
-		else
-			break;
+        else {
+            std::cout << "\n";
+            break;
+        }
 	}
 }
 

@@ -35,12 +35,12 @@ int main(){
         char pause = ' ';
         do {
             system("CLS");
-            currentGame.printGames();
+            currentGame.printGames(selectedPokemon.generation);
             std::string userGame = " ";
             std::cout << "What game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
-            currentGame.setCurrentGame(userGame);
+            currentGame.setCurrentGame(userGame, selectedPokemon);
             if (currentGame.generation == 0) {
                 std::cout << "The game that you entered was not recognized.";
                 pause = getchar();
@@ -73,8 +73,8 @@ int main(){
         currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame);
     }
     else {
-        //currentGame.setCurrentGame(selectedPokemon.game);
-       // currentMethod.setMethod(selectedPokemon.method, currentGame);
+        currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
+        currentMethod.setMethod(selectedPokemon.method, currentGame);
     }
     currentMethod.shinyHunt(selectedPokemon);
 }

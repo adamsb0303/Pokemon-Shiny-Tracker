@@ -53,8 +53,10 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 huntable = temp.compare("true") == 0;
                 break;
             case 9:
-                for (int i = 0; i < 5; i++) 
-                    locations[i] = splitString(temp, i + 1, ' ');
+                wild = temp.compare("true") == 0;
+                break;
+            case 10:
+                fish = temp.compare("true") == 0;
                 break;
             default:
                 break;
@@ -73,7 +75,7 @@ std::string Pokemon::splitString(std::string word, int wordNumber, char seperato
 }
 
 void Pokemon::savePokemonData() {
-    std::string filePath = "Pokedex/" + this->name + ".txt";
+    std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream Data(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
     Data << name + ",";
     Data << generation << ",";

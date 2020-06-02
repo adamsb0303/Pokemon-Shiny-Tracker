@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Game.h"
+#include "Pokemon.h"
 
 const std::string Games[8][6] = { {"Red", "Green", "Blue", "Yellow", " ", " "},
 								{"Gold", "Silver", "Crystal", " ", " ", " "},
@@ -16,10 +17,12 @@ Game::Game() {
 	generation = 0;
 	for (int i = 0; i < 5; i++)
 		methods[i] = " ";
+	pokemonIsPresent = false;
 }
 
-void Game::printGames() {
-	for (int i = 0; i < 8; i++) {
+void Game::printGames(int pokemonGeneration) {
+	std::cout << "Games by Generation\n\n";
+	for (int i = pokemonGeneration - 1; i < 8; i++) {
 		std::cout << i + 1 << ". ";
 		for (int j = 0; j < 6; j++) {
 			if (j != 5 && Games[i][j+1].compare(" ") != 0)
@@ -33,7 +36,7 @@ void Game::printGames() {
 	}
 }
 
-void Game::setCurrentGame(std::string game) {
+void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 	for (int i = 0; i < 8; i++) {
 		for (int j = 0; j < 6; j++) {
 			std::string currentGame = Games[i][j];
@@ -45,18 +48,19 @@ void Game::setCurrentGame(std::string game) {
 			if (game.compare(currentGame) == 0) {
 				name = Games[i][j];
 				generation = i + 1;
-				generateMethods(generation, name);
+				generateMethods(generation, name, selectedPokemon);
 			}
 		}
 	}
 }
 
-void Game::generateMethods(int generation, std::string name) {
+void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
 	switch (generation) {
 		case 2 :
 			numMethods = 2;
 			methods[0] = "None";
-			methods[1] = "Breeding with Shiny";
+			if(selectedPokemon.breedable)
+				methods[1] = "Breeding with Shiny";
 			break;
 		case 3:
 			numMethods = 1;
@@ -66,26 +70,32 @@ void Game::generateMethods(int generation, std::string name) {
 			if (name.compare("Diamond") == 0 || name.compare("Pearl") == 0 || name.compare("Platinum") == 0) {
 				numMethods = 3;
 				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "Radar Chaining";
+				if(selectedPokemon.breedable)
+					methods[1] = "Masuda";
+				if(selectedPokemon.wild)
+					methods[2] = "Radar Chaining";
 				break;
 			}
 			else {
 				numMethods = 2;
 				methods[0] = "None";
-				methods[1] = "Masuda";
+				if(selectedPokemon.breedable)
+					methods[1] = "Masuda";
 				break;
 			}
 		case 5:
 			numMethods = 2;
 			methods[0] = "None";
-			methods[1] = "Masuda";
+			if (selectedPokemon.breedable)
+				methods[1] = "Masuda";
 		case 6:
 			if (name.compare("X") == 0 || name.compare("Y") == 0) {
 				numMethods = 5;
 				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "Radar Chaining";
+				if (selectedPokemon.breedable)
+					methods[1] = "Masuda";
+				if (selectedPokemon.wild)
+					methods[2] = "Radar Chaining";
 				methods[3] = "Chain Fishing";
 				methods[4] = "Friend Safari";
 				break;
