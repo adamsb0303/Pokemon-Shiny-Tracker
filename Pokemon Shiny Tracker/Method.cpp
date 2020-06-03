@@ -100,6 +100,10 @@ void Method::shinyHunt(Pokemon pokemon) {
     for (;;) {
         if (userInput != '1' && userInput != '2') {
             system("CLS");
+            if (name.compare("None") == 0)
+                std::cout << "Currently no method being used.\n";
+            else
+                std::cout << "Currently using the " << name << " Method\n";
             std::cout << "Current Hunt: " << pokemon.name << std::endl << "Enter:\n1 Caught\n2 Save and Exit\n3 Reset Counter\n\n";
             pokemon.encounters++;
             Method::generateOdds(pokemon.encounters);

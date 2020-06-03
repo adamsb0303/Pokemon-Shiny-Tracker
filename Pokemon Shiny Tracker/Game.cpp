@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <string>
 #include "Game.h"
@@ -111,8 +112,18 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 					methods[1] = "Masuda";
 				if (selectedPokemon.wild)
 					methods[2] = "Radar Chaining";
-				methods[3] = "Chain Fishing";
-				methods[4] = "Friend Safari";
+				if(selectedPokemon.fish)
+					methods[3] = "Chain Fishing";
+
+				std::ifstream friendSafari("Game Data/Friend Safari.txt");
+				std::string safariPokemon;
+				while (getline(friendSafari, safariPokemon)) {
+					if (selectedPokemon.name.compare(safariPokemon) == 0) {
+						methods[4] = "Friend Safari";
+						break;
+					}
+				}
+				friendSafari.close();
 
 				shinyLocked[0] = "Articuno";
 				shinyLocked[1] = "Zapdos";
@@ -125,9 +136,12 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			else {
 				numMethods = 4;
 				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "Chain Fishing";
-				methods[3] = "DexNav Chaining";
+				if(selectedPokemon.breedable)
+					methods[1] = "Masuda";
+				if(selectedPokemon.fish)
+					methods[2] = "Chain Fishing";
+				if(selectedPokemon.wild)
+					methods[3] = "DexNav Chaining";
 
 				shinyLocked[0] = "Kyogre";
 				shinyLocked[1] = "Groudon";
@@ -139,8 +153,10 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {
 				numMethods = 3;
 				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "SOS Chaining";
+				if(selectedPokemon.breedable)
+					methods[1] = "Masuda";
+				if(selectedPokemon.sos)
+					methods[2] = "SOS Chaining";
 
 				shinyLocked[0] = "Tapu Koko";
 				shinyLocked[1] = "Tapu Lele";
@@ -161,9 +177,19 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			if (name.compare("Ultra Sun") == 0 || name.compare("Ultra Moon") == 0) {
 				numMethods = 4;
 				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "SOS Chaining";
-				methods[3] = "Ultra Wormholes";
+				if(selectedPokemon.breedable)
+					methods[1] = "Masuda";
+				if(selectedPokemon.sos)
+					methods[2] = "SOS Chaining";
+				std::ifstream Wormholes("Game Data/Wormholes.txt");
+				std::string wormhole;
+				while (getline(Wormholes, wormhole)) {
+					if(selectedPokemon.name.compare(wormhole) == 0) {
+						methods[3] = "Ultra Wormholes";
+						break;
+					}
+				}
+				Wormholes.close();
 
 				shinyLocked[0] = "Tapu Koko";
 				shinyLocked[1] = "Tapu Lele";
@@ -177,14 +203,17 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			else {
 				numMethods = 2;
 				methods[0] = "None";
-				methods[1] = "Catch Combo";
+				if(selectedPokemon.wild)
+					methods[1] = "Catch Combo";
 			}
 			break;
 		case 8:
 			numMethods = 3;
 			methods[0] = "None";
-			methods[1] = "Masuda";
-			methods[2] = "Total Encounters";
+			if(selectedPokemon.wild)
+				methods[1] = "Masuda";
+			if(selectedPokemon.wild)
+				methods[2] = "Total Encounters";
 
 			shinyLocked[0] = "Type: Null";
 			shinyLocked[1] = "Zacian";
