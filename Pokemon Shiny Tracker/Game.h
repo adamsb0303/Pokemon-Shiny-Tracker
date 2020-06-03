@@ -11,6 +11,7 @@ public:
 	int numMethods;
 	int generation;
 	const std::string Methods[10];
+	std::string shinyLocked[15];
 	bool pokemonIsPresent;
 
 	Game();

@@ -97,6 +97,13 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			methods[0] = "None";
 			if (selectedPokemon.breedable)
 				methods[1] = "Masuda";
+
+			shinyLocked[0] = "Reshiram";
+			shinyLocked[1] = "Zekrom";
+			if (name.compare("Black") == 0 || name.compare("White") == 0) {
+				shinyLocked[3] = "Victini";
+			}
+			break;
 		case 6:
 			if (name.compare("X") == 0 || name.compare("Y") == 0) {
 				numMethods = 5;
@@ -107,7 +114,14 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 					methods[2] = "Radar Chaining";
 				methods[3] = "Chain Fishing";
 				methods[4] = "Friend Safari";
-				break;
+
+				shinyLocked[0] = "Articuno";
+				shinyLocked[1] = "Zapdos";
+				shinyLocked[2] = "Moltres";
+				shinyLocked[3] = "Mewtwo";
+				shinyLocked[4] = "Xerneas";
+				shinyLocked[5] = "Yveltal";
+				shinyLocked[6] = "Zygarde";
 			}
 			else {
 				numMethods = 4;
@@ -115,35 +129,68 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 				methods[1] = "Masuda";
 				methods[2] = "Chain Fishing";
 				methods[3] = "DexNav Chaining";
-				break;
+
+				shinyLocked[0] = "Kyogre";
+				shinyLocked[1] = "Groudon";
+				shinyLocked[2] = "Rayquaza";
+				shinyLocked[3] = "Deoxys";
 			}
+			break;
 		case 7:
+			if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {
+				numMethods = 3;
+				methods[0] = "None";
+				methods[1] = "Masuda";
+				methods[2] = "SOS Chaining";
+
+				shinyLocked[0] = "Tapu Koko";
+				shinyLocked[1] = "Tapu Lele";
+				shinyLocked[2] = "Tapu Bulu";
+				shinyLocked[3] = "Tapu Fini";
+				shinyLocked[4] = "Cosmog";
+				shinyLocked[5] = "Solgaleo";
+				shinyLocked[6] = "Lunala";
+				shinyLocked[7] = "Nihilego";
+				shinyLocked[8] = "Buzzwole";
+				shinyLocked[9] = "Pheromosa";
+				shinyLocked[10] = "Xurkitree";
+				shinyLocked[11] = "Celesteela";
+				shinyLocked[12] = "Kartana";
+				shinyLocked[13] = "Guzzlord";
+				shinyLocked[14] = "Necrozma";
+			}
 			if (name.compare("Ultra Sun") == 0 || name.compare("Ultra Moon") == 0) {
 				numMethods = 4;
 				methods[0] = "None";
 				methods[1] = "Masuda";
 				methods[2] = "SOS Chaining";
 				methods[3] = "Ultra Wormholes";
-				break;
-			}
-			else if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {
-				numMethods = 3;
-				methods[0] = "None";
-				methods[1] = "Masuda";
-				methods[2] = "SOS Chaining";
-				break;
+
+				shinyLocked[0] = "Tapu Koko";
+				shinyLocked[1] = "Tapu Lele";
+				shinyLocked[2] = "Tapu Bulu";
+				shinyLocked[3] = "Tapu Fini";
+				shinyLocked[4] = "Cosmog";
+				shinyLocked[5] = "Solgaleo";
+				shinyLocked[6] = "Lunala";
+				shinyLocked[7] = "Zygarde";
 			}
 			else {
 				numMethods = 2;
 				methods[0] = "None";
 				methods[1] = "Catch Combo";
-				break;
 			}
+			break;
 		case 8:
 			numMethods = 3;
 			methods[0] = "None";
 			methods[1] = "Masuda";
 			methods[2] = "Total Encounters";
+
+			shinyLocked[0] = "Type: Null";
+			shinyLocked[1] = "Zacian";
+			shinyLocked[2] = "Zamazenta";
+			shinyLocked[3] = "Eternatus";
 			break;
 		default:
 			break;
