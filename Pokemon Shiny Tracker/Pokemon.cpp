@@ -5,12 +5,15 @@
 Pokemon::Pokemon() {
     name = "";
     generation = 0;
-    breedable = true;
     encounters = 0;
     game = "";
     method = "";
     evolutionStage = 0;
-    huntable = true;
+    breedable = false;
+    huntable = false;
+    wild = false;
+    fish = false;
+    sos = false;
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {

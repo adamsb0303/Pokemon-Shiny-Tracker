@@ -22,7 +22,7 @@ Game::Game() {
 
 void Game::printGames(int pokemonGeneration) {
 	std::cout << "Games by Generation\n\n";
-	for (int i = pokemonGeneration - 1; i < 8; i++) {
+	for (int i = pokemonGeneration; i < 8; i++) {
 		std::cout << i + 1 << ". ";
 		for (int j = 0; j < 6; j++) {
 			if (j != 5 && Games[i][j+1].compare(" ") != 0)
@@ -63,6 +63,7 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
+	char pause = ' ';
 	switch (generation) {
 		case 2 :
 			numMethods = 2;

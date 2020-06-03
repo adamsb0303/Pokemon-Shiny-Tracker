@@ -47,7 +47,7 @@ int main() {
             system("CLS");
             currentGame.printGames(selectedPokemon.generation);
             std::string userGame = " ";
-            std::cout << "\nWhat game are you hunting in?\n";
+            std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
             if (userGame.length() > 11) {

@@ -15,6 +15,8 @@ public:
 	bool wild;
 	bool fish;
 	bool huntable;
+	bool sos;
+
 	Pokemon();
 	void generatePokemonData(std::string inputName);
 	std::string splitString(std::string word, int wordNumber, char seperator);
