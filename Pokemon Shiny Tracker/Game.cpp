@@ -67,7 +67,8 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
-	methods[0] = "None";
+	if(!selectedPokemon.special)
+		methods[0] = "None";
 	switch (generation) {
 		case 2 :
 			numMethods = 2;

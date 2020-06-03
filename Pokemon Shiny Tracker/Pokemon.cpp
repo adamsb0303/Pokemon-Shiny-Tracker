@@ -77,8 +77,7 @@ void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
     std::ifstream gamePokedex(filePath.c_str());
     std::string pokemon;
     special = false;
-    findStarters(generation, name);
-    findLegendaries(generation, name);
+    findMythicals(generation, name);
     while (getline(gamePokedex, pokemon)) {
         if (name.compare(pokemon)) {
             if(!fish && !special)
@@ -89,16 +88,16 @@ void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
     gamePokedex.close();
 }
 
-void Pokemon::findLegendaries(int generation, std::string game) {
-    std::string legends;
-    std::ifstream Legendaries("Game Data/Legendaries.txt");
-    while (getline(Legendaries, legends)) {
-        if (name.compare(legends) == 0) {
+void Pokemon::findMythicals(int generation, std::string game) {
+    std::string mythics;
+    std::ifstream Mythicals("Game Data/Mythicals.txt");
+    while (getline(Mythicals, mythics)) {
+        if (name.compare(mythics) == 0) {
             special = true;
             break;
         }
     }
-    Legendaries.close();
+    Mythicals.close();
 }
 
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
