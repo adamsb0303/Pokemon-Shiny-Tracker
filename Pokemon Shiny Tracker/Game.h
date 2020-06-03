@@ -20,6 +20,10 @@ public:
 
 	void setCurrentGame(std::string game, Pokemon selectedPokemon);
 
+	void getLocations(Pokemon& selectedPokemon);
+
+	void findMythicals(Pokemon& selectedPokemon);
+
 	void generateMethods(int generation, std::string game, Pokemon selectedPokemon);
 };
 

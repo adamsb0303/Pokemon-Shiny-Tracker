@@ -50,11 +50,7 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 			if (game.compare(currentGame) == 0) {
 				name = Games[i][j];
 				generation = i + 1;
-				selectedPokemon.getLocations(generation, name, pokemonIsPresent);
-				if (!pokemonIsPresent) {
-					created = false;
-					break;
-				}
+				getLocations(selectedPokemon);
 				generateMethods(generation, name, selectedPokemon);
 			}
 		}
@@ -64,6 +60,35 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 		std::cout << "The game that you entered was not recognized.";
 		pause = getchar();
 	}
+}
+
+void Game::getLocations(Pokemon& selectedPokemon) {
+	std::string filePath = "Game Data/Gen " + std::to_string(generation);
+	filePath = filePath + "/" + name + ".txt";
+	std::ifstream gamePokedex(filePath.c_str());
+	std::string pokemon;
+	selectedPokemon.special = false;
+	findMythicals(selectedPokemon);
+	while (getline(gamePokedex, pokemon)) {
+		if (selectedPokemon.name.compare(pokemon) == 0) {
+			if (!selectedPokemon.fish && !selectedPokemon.special)
+				selectedPokemon.wild = true;
+			break;
+		}
+	}
+	gamePokedex.close();
+}
+
+void Game::findMythicals(Pokemon& selectedPokemon) {
+	std::string mythics;
+	std::ifstream Mythicals("Game Data/Mythicals.txt");
+	while (getline(Mythicals, mythics)) {
+		if (name.compare(mythics) == 0) {
+			selectedPokemon.special = true;
+			break;
+		}
+	}
+	Mythicals.close();
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {

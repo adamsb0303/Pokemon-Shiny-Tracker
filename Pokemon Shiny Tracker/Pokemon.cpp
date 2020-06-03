@@ -71,35 +71,6 @@ void Pokemon::generatePokemonData(std::string inputName) {
     Data.close();
 }
 
-void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
-    std::string filePath = "Game Data/Gen" + generation;
-    filePath = "/" + name + ".txt";
-    std::ifstream gamePokedex(filePath.c_str());
-    std::string pokemon;
-    special = false;
-    findMythicals(generation, name);
-    while (getline(gamePokedex, pokemon)) {
-        if (name.compare(pokemon)) {
-            if(!fish && !special)
-                wild = true;
-            break;
-        }
-    }
-    gamePokedex.close();
-}
-
-void Pokemon::findMythicals(int generation, std::string game) {
-    std::string mythics;
-    std::ifstream Mythicals("Game Data/Mythicals.txt");
-    while (getline(Mythicals, mythics)) {
-        if (name.compare(mythics) == 0) {
-            special = true;
-            break;
-        }
-    }
-    Mythicals.close();
-}
-
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
     int index = word.find(seperator);
     if (wordNumber > 1)
