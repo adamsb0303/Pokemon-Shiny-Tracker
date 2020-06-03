@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include "Pokemon.h"
+#include "Game.h"
+
 Pokemon::Pokemon() {
     name = "";
     generation = 0;
@@ -13,6 +15,7 @@ Pokemon::Pokemon() {
     wild = false;
     fish = false;
     sos = false;
+    special = false;
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {
@@ -63,12 +66,28 @@ void Pokemon::generatePokemonData(std::string inputName) {
             case 10:
                 sos = temp.compare("true") == 0;
                 break;
+            case 11:
+                special = temp.compare("true") == 0;
+                break;
             default:
                 break;
         }
         counter++;
     }
     Data.close();
+}
+
+void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
+    std::string filePath = "Game Data/Gen" + generation;
+    filePath = "/" + name + ".txt";
+    std::ifstream gamePokedex(filePath.c_str());
+    std::string pokemon;
+    while (getline(gamePokedex, pokemon)) {
+        if (name.compare(pokemon)) {
+            isPresent = true;
+            break;
+        }
+    }
 }
 
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {

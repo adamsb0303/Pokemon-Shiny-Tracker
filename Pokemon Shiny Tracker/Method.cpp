@@ -17,13 +17,12 @@ Method::Method() {
 //Prints the methods from the array that was taken from the game that is being used
 void Method::printMethods(std::string methods[5]) {
 	for (int i = 0; i < 5; i++) {
-		if (methods[i].compare(" ") != 0)
-			std::cout << i + 1 << ". " << methods[i] << "\n";
+        if (methods[i].compare(" ") == 0) {}
         else {
-            std::cout << "\n";
-            break;
+            std::cout << i + 1 << ". " << methods[i] << "\n";
         }
 	}
+    std::cout << "\n";
 }
 
 //Sets Method Data for specified game

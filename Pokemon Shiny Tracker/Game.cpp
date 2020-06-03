@@ -18,7 +18,7 @@ Game::Game() {
 	generation = 0;
 	for (int i = 0; i < 5; i++)
 		methods[i] = " ";
-	pokemonIsPresent = false;
+	pokemonIsPresent = true;
 }
 
 void Game::printGames(int pokemonGeneration) {
@@ -38,8 +38,8 @@ void Game::printGames(int pokemonGeneration) {
 }
 
 void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
-	bool created = false;
-	for (int i = 0; i < 8 && !created; i++) {
+	bool created = true;
+	for (int i = 0; i < 8 && created; i++) {
 		for (int j = 0; j < 6; j++) {
 			std::string currentGame = Games[i][j];
 			for (int k = 0; k < game.length(); k++) {
@@ -50,9 +50,12 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 			if (game.compare(currentGame) == 0) {
 				name = Games[i][j];
 				generation = i + 1;
+				selectedPokemon.getLocations(generation, name, pokemonIsPresent);
+				if (!pokemonIsPresent) {
+					created = false;
+					break;
+				}
 				generateMethods(generation, name, selectedPokemon);
-				created = true;
-				break;
 			}
 		}
 	}
@@ -64,37 +67,44 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
+	int index = 0;
+	if (selectedPokemon.special || selectedPokemon.wild){
+		methods[index] = "None";
+		index++;
+	}
 	switch (generation) {
 		case 2 :
 			numMethods = 2;
-			methods[0] = "None";
-			if(selectedPokemon.breedable)
-				methods[1] = "Breeding with Shiny";
+			if (selectedPokemon.breedable) {
+				methods[index] = "Breeding with Shiny";
+			}
 			break;
 		case 3:
 			numMethods = 1;
-			methods[0] = "None";
 			break;
 		case 4:
 			if (name.compare("Diamond") == 0 || name.compare("Pearl") == 0 || name.compare("Platinum") == 0) {
 				numMethods = 3;
-				methods[0] = "None";
-				if(selectedPokemon.breedable)
-					methods[1] = "Masuda";
-				if(selectedPokemon.wild)
-					methods[2] = "Radar Chaining";
+				if (selectedPokemon.breedable) {
+					methods[index] = "Masuda";
+					index++;
+				}
+				if (selectedPokemon.wild) {
+					methods[index] = "Radar Chaining";
+					index++;
+				}
 				break;
 			}
 			else {
 				numMethods = 2;
-				methods[0] = "None";
 				if(selectedPokemon.breedable)
-					methods[1] = "Masuda";
+					methods[index] = "Masuda";
 				break;
 			}
 		case 5:
 			numMethods = 2;
-			methods[0] = "None";
+			if (selectedPokemon.special || selectedPokemon.wild)
+				methods[0] = "None";
 			if (selectedPokemon.breedable)
 				methods[1] = "Masuda";
 
@@ -107,7 +117,8 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 		case 6:
 			if (name.compare("X") == 0 || name.compare("Y") == 0) {
 				numMethods = 5;
-				methods[0] = "None";
+				if (selectedPokemon.special || selectedPokemon.wild)
+					methods[0] = "None";
 				if (selectedPokemon.breedable)
 					methods[1] = "Masuda";
 				if (selectedPokemon.wild)
@@ -135,7 +146,8 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			}
 			else {
 				numMethods = 4;
-				methods[0] = "None";
+				if (selectedPokemon.special || selectedPokemon.wild)
+					methods[0] = "None";
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";
 				if(selectedPokemon.fish)
@@ -152,7 +164,8 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 		case 7:
 			if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {
 				numMethods = 3;
-				methods[0] = "None";
+				if (selectedPokemon.special || selectedPokemon.wild)
+					methods[0] = "None";
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";
 				if(selectedPokemon.sos)
@@ -176,7 +189,8 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			}
 			if (name.compare("Ultra Sun") == 0 || name.compare("Ultra Moon") == 0) {
 				numMethods = 4;
-				methods[0] = "None";
+				if (selectedPokemon.special || selectedPokemon.wild)
+					methods[0] = "None";
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";
 				if(selectedPokemon.sos)
@@ -202,15 +216,15 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			}
 			else {
 				numMethods = 2;
-				methods[0] = "None";
+				if (selectedPokemon.special || selectedPokemon.wild)
+					methods[0] = "None";
 				if(selectedPokemon.wild)
 					methods[1] = "Catch Combo";
 			}
 			break;
 		case 8:
 			numMethods = 3;
-			methods[0] = "None";
-			if(selectedPokemon.wild)
+			if(selectedPokemon.breedable)
 				methods[1] = "Masuda";
 			if(selectedPokemon.wild)
 				methods[2] = "Total Encounters";

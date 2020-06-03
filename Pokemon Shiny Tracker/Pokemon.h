@@ -2,6 +2,8 @@
 #ifndef POKEMON_H
 #define POKEMON_H
 
+class Game;
+
 class Pokemon {
 public:
 	std::string name;
@@ -15,9 +17,11 @@ public:
 	bool wild;
 	bool fish;
 	bool sos;
+	bool special;
 
 	Pokemon();
 	void generatePokemonData(std::string inputName);
+	void getLocations(int generation, std::string name, bool isPresent);
 	std::string splitString(std::string word, int wordNumber, char seperator);
 	void savePokemonData();
 	void pokemonCaught();
