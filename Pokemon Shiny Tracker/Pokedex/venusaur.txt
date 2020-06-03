@@ -1,9 +1,11 @@
-venusaur
-4
-true
+Venusaur
 0
- 
- 
+1
+
+
 2
-bulbasaur ivysaur 
+Bulbasaur Ivysaur 
 true
+false
+false
+false

@@ -1,11 +1,11 @@
-bulbasaur
-1
-true
+Bulbasaur
 0
- 
- 
 1
- 
+
+
+0
+
 true
+false
 false
 false

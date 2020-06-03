@@ -10,7 +10,6 @@ Pokemon::Pokemon() {
     method = "";
     evolutionStage = 0;
     breedable = false;
-    huntable = false;
     wild = false;
     fish = false;
     sos = false;
@@ -34,35 +33,35 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 name = temp;
                 break;
             case 1:
-                generation = std::stoi(temp);
-                break;
-            case 2:
-                breedable = temp.compare("true") == 0;
-                break;
-            case 3:
                 encounters = std::stoi(temp) - 1;
                 break;
-            case 4:
+            case 2:
+                generation = std::stoi(temp);
+                break;
+            case 3:
                 game = temp;
                 break;
-            case 5:
+            case 4:
                 method = temp;
                 break;
-            case 6:
+            case 5:
                 evolutionStage = std::stoi(temp);
                 break;
-            case 7:
-                for (int i = 0; i < 4; i++) 
+            case 6:
+                for (int i = 0; i < 4; i++)
                     family[i] = splitString(temp, i + 1, ' ');
                 break;
-            case 8:
-                huntable = temp.compare("true") == 0;
+            case 7:
+                breedable = temp.compare("true") == 0;
                 break;
-            case 9:
+            case 8:
                 wild = temp.compare("true") == 0;
                 break;
-            case 10:
+            case 9:
                 fish = temp.compare("true") == 0;
+                break;
+            case 10:
+                sos = temp.compare("true") == 0;
                 break;
             default:
                 break;

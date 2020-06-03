@@ -37,16 +37,14 @@ int main() {
             selectedPokemon.generatePokemonData(pokemonName);
         }
     } while (selectedPokemon.generation == 0);
-
-    
     
     Method currentMethod = Method();
     Game currentGame = Game();
+    std::string userGame = " ";
     if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
             currentGame.printGames(selectedPokemon.generation);
-            std::string userGame = " ";
             std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
@@ -58,13 +56,36 @@ int main() {
                 currentGame.setCurrentGame(userGame, selectedPokemon);
             }
         } while (currentGame.generation == 0);
-        
+
+        Pokemon Pokemonevolution0 = Pokemon();
+        Game Gameevolution0 = Game();
+        if (selectedPokemon.evolutionStage == 1 || selectedPokemon.evolutionStage == 2) {
+            Pokemonevolution0.generatePokemonData(selectedPokemon.family[0]);
+            Gameevolution0.setCurrentGame(userGame, Pokemonevolution0);
+        }
+
+        Pokemon Pokemonevolution1 = Pokemon();
+        Game Gameevolution1 = Game();
+        if (selectedPokemon.evolutionStage == 2) {
+            Pokemonevolution1.generatePokemonData(selectedPokemon.family[1]);
+            Gameevolution1.setCurrentGame(userGame, Pokemonevolution1);
+        }
+
         int numMethod;
         std::string userMethod;
         do {
             numMethod = 0;
             system("CLS");
+            std::cout << selectedPokemon.name << ":\n";
             currentMethod.printMethods(currentGame.methods);
+            if (selectedPokemon.evolutionStage == 2) {
+                std::cout << Pokemonevolution1.name << ":\n";
+                currentMethod.printMethods(Gameevolution1.methods);
+            }
+            if (selectedPokemon.evolutionStage == 2 || selectedPokemon.evolutionStage == 1) {
+                std::cout << Pokemonevolution0.name << ":\n";
+                currentMethod.printMethods(Gameevolution0.methods);
+            }
             std::cout << "\nEnter the number next to the method that you are using.\n";
             std::cin >> numMethod;
             if (numMethod > currentGame.numMethods) {
@@ -82,11 +103,11 @@ int main() {
                 currentMethod.shinyCharm = true;
             }
         }
-        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame);
+        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.name);
     }
     else {
         currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
-        currentMethod.setMethod(selectedPokemon.method, currentGame);
+        currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.name);
     }
     currentMethod.shinyHunt(selectedPokemon);
 }

@@ -5,8 +5,8 @@
 class Pokemon {
 public:
 	std::string name;
-	int generation;
 	int encounters;
+	int generation;
 	std::string game;
 	std::string method;
 	int evolutionStage;
@@ -14,7 +14,6 @@ public:
 	bool breedable;
 	bool wild;
 	bool fish;
-	bool huntable;
 	bool sos;
 
 	Pokemon();

@@ -20,7 +20,7 @@ public:
 
 	void printMethods(std::string methods[5]);
 
-	void setMethod(std::string method, Game game);
+	void setMethod(std::string method, Game game, std::string selectedPokemon);
 
 	void shinyHunt(Pokemon pokemon);
 
