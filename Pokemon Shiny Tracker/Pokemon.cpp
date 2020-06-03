@@ -76,6 +76,7 @@ void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
     filePath = "/" + name + ".txt";
     std::ifstream gamePokedex(filePath.c_str());
     std::string pokemon;
+    special = false;
     findStarters(generation, name);
     findLegendaries(generation, name);
     while (getline(gamePokedex, pokemon)) {
@@ -86,66 +87,6 @@ void Pokemon::getLocations(int generation, std::string name, bool isPresent) {
         }
     }
     gamePokedex.close();
-}
-
-void Pokemon::findStarters(int generation, std::string game) {
-    switch (generation) {
-        case 2:
-            if (name.compare("Chikorita") == 0 || name.compare("Cyndaquil") == 0 || name.compare("Totodile") == 0)
-                special = true;
-        case 3:
-            if (name.compare("Treecko") == 0 || name.compare("Torchic") == 0 || name.compare("Mudkip") == 0)
-                special = true;
-        case 4:
-            if (name.compare("Turtwig") == 0 || name.compare("Chimchar") == 0 || name.compare("Piplup") == 0)
-                special = true;
-        case 5:
-            if (name.compare("Snivy") == 0 || name.compare("Tepig") == 0 || name.compare("Oshawott") == 0)
-                special = true;
-        case 6:
-            if (name.compare("Chespin") == 0 || name.compare("Fennekin") == 0 || name.compare("Froakie") == 0 && !(game.compare("Omega Ruby") == 0 || game.compare("Alpha Sapphire")));
-                special = true;
-        case 7:
-            if (name.compare("Rowlet") == 0 || name.compare("Litten") == 0 || name.compare("Popplio") == 0)
-                special = true;
-        case 8:
-            if (name.compare("Grookey") == 0 || name.compare("Scorbunny") == 0 || name.compare("Sobble") == 0)
-                special = true;
-    }
-
-    if (game.compare("LeafGreen") == 0 || game.compare("FireRed") == 0)
-        if (name.compare("Bulbasaur") == 0 || name.compare("Charmander") == 0 || name.compare("Squirtle") == 0)
-            special = true;
-
-    if(game.compare("Emerald") == 0)
-        if (name.compare("Chikorita") == 0 || name.compare("Cyndaquil") == 0 || name.compare("Totodile") == 0)
-            special = true;
-
-    if (game.compare("HeartGold") == 0 || game.compare("SoulSilver") == 0) {
-        if (name.compare("Bulbasaur") == 0 || name.compare("Charmander") == 0 || name.compare("Squirtle") == 0)
-            special = true;
-        if (name.compare("Treecko") == 0 || name.compare("Torchic") == 0 || name.compare("Mudkip") == 0)
-            special = true;
-    }
-
-    if (game.compare("X") == 0 || game.compare("Y") == 0)
-        if (name.compare("Bulbasaur") == 0 || name.compare("Charmander") == 0 || name.compare("Squirtle") == 0)
-            special = true;
-
-    if (game.compare("Omega Ruby") == 0 || game.compare("Alpha Sapphire") == 0) {
-        if (name.compare("Chikorita") == 0 || name.compare("Cyndaquil") == 0 || name.compare("Totodile") == 0)
-            special = true;
-        if (name.compare("Treecko") == 0 || name.compare("Torchic") == 0 || name.compare("Mudkip") == 0)
-            special = true;
-        if (name.compare("Turtwig") == 0 || name.compare("Chimchar") == 0 || name.compare("Piplup") == 0)
-            special = true;
-        if (name.compare("Snivy") == 0 || name.compare("Tepig") == 0 || name.compare("Oshawott") == 0)
-            special = true;
-    }
-
-    if (game.compare("Sword") == 0 || game.compare("Shield") == 0)
-        if (name.compare("Charmander"))
-            special = true;
 }
 
 void Pokemon::findLegendaries(int generation, std::string game) {

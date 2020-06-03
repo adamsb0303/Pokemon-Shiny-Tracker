@@ -6,7 +6,7 @@
 #include "Method.h"
 
 int main() {
-    Pokemon selectedPokemon;
+    Pokemon selectedPokemon = Pokemon();
     char pause = ' ';
     do {
         std::string pokemonName;
