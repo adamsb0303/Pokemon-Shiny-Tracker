@@ -24,6 +24,10 @@ public:
 
 	void findMythicals(Pokemon& selectedPokemon);
 
+	void findFish(Pokemon& selectedPokemon);
+
+	void findLegendaries(Pokemon& selectedPokemon);
+
 	void generateMethods(int generation, std::string game, Pokemon selectedPokemon);
 };
 

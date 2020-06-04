@@ -69,6 +69,7 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 	std::string pokemon;
 	selectedPokemon.special = false;
 	findMythicals(selectedPokemon);
+	findFish(selectedPokemon);
 	while (getline(gamePokedex, pokemon)) {
 		if (selectedPokemon.name.compare(pokemon) == 0) {
 			if (!selectedPokemon.fish && !selectedPokemon.special)
@@ -88,6 +89,28 @@ void Game::findMythicals(Pokemon& selectedPokemon) {
 			break;
 		}
 	}
+	Mythicals.close();
+}
+
+void Game::findFish(Pokemon& selectedPokemon) {
+	std::string filePath;
+	if (name.compare("X") == 0 || name.compare("Y") == 0)
+		filePath = "Game Data/Gen 6/Fish" + name + ".txt";
+	else
+		filePath = "Game Data/Gen 6/FishORAS.txt";
+	std::ifstream fish(filePath.c_str());
+	std::string fishes;
+	while (getline(fish, fishes)) {
+		if (selectedPokemon.name.compare(fishes) == 0) {
+			selectedPokemon.fish = true;
+			break;
+		}
+	}
+	fish.close();
+}
+
+void Game::findLegendaries(Pokemon& selectedPokemon) {
+
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
