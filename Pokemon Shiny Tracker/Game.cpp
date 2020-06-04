@@ -88,10 +88,6 @@ void Game::findMythicals(Pokemon& selectedPokemon) {
 			break;
 		}
 	}
-
-	std::string legends;
-	std::ifstream Legendaries;
-	Mythicals.close();
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {

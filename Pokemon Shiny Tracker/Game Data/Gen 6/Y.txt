@@ -82,13 +82,11 @@ Remoraid
 Octillery
 Delibird
 Skarmory
-Houndour
 Smeargle
 Smoochum
 Miltank
 Larvitar
 Pupitar
-Mightyena
 Zigzagoon
 Lombre
 Taillow
@@ -103,8 +101,6 @@ Nosepass
 Skitty
 Sableye
 Mawile
-Aron
-Lairon
 Meditite
 Electrike
 Plusle
@@ -169,7 +165,6 @@ Woobat
 Audino
 Gurdurr
 Throh
-Sawk
 Venipede
 Basculin
 Sandile
@@ -215,7 +210,6 @@ Furfrou
 Espurr
 Honedge
 Spritzee
-Swirlix
 Inkay
 Binacle
 Skrelp

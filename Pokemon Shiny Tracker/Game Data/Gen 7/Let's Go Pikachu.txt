@@ -15,7 +15,6 @@ Rattata
 Raticate
 Spearow
 Fearow
-Ekans
 Pikachu
 Sandshrew
 NidoranF
@@ -26,8 +25,6 @@ Nidorino
 Nidoking
 Clefairy
 Clefable
-Vulpix
-Ninetales
 Jigglypuff
 Zubat
 Golbat
@@ -39,7 +36,6 @@ Venonat
 Venomoth
 Diglett
 Dugtrio
-Meowth
 Psyduck
 Golduck
 Mankey
@@ -51,9 +47,6 @@ Abra
 Kadabra
 Machop
 Machoke
-Bellsprout
-Weepinbell
-Victreebel
 Tentacool
 Tentacruel
 Geodude
@@ -87,7 +80,6 @@ Cubone
 Hitmonlee
 Hitmonchan
 Lickitung
-Koffing
 Rhyhorn
 Rhydon
 Chansey
@@ -103,7 +95,6 @@ Scyther
 Jynx
 Electabuzz
 Magmar
-Pinsir
 Tauros
 Magikarp
 Gyarados

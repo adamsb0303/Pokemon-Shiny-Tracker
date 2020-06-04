@@ -81,8 +81,6 @@ Wurmple
 Silcoon
 Cascoon
 Lombre
-Seedot
-Nuzleaf
 Taillow
 Wingull
 Pelipper
@@ -99,7 +97,6 @@ Hariyama
 Nosepass
 Skitty
 Sableye
-Mawile
 Aron
 Lairon
 Meditite
@@ -120,7 +117,6 @@ Spinda
 Trapinch
 Cacnea
 Swablu
-Zangoose
 Seviper
 Lunatone
 Barboach
