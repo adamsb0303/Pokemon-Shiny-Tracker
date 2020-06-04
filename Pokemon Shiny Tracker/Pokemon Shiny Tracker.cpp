@@ -12,7 +12,7 @@ int main() {
         std::string pokemonName;
         std::cout << "Please enter the Pokemon that you would like to hunt.\n";
         std::cin >> pokemonName;
-        if (pokemonName.length() > 11)
+        if (pokemonName.length() > 20)
             std::cout << "The Pokemon was not recognized.";
         else {
             //Display Previously Caught Shinies
@@ -40,7 +40,7 @@ int main() {
     
     Method currentMethod = Method();
     Game currentGame = Game();
-    std::string userGame = " ";
+    std::string userGame;
     if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
@@ -48,13 +48,14 @@ int main() {
             std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
-            if (userGame.length() > 11) {
+            if (userGame.length() > 20) {
                 std::cout << "The game that you entered was not recognized.";
                 pause = getchar();
             }
             else {
                 currentGame.setCurrentGame(userGame, selectedPokemon);
             }
+            userGame = "";
         } while (currentGame.generation == 0);
 
         Pokemon Pokemonevolution0 = Pokemon();
@@ -76,15 +77,14 @@ int main() {
         do {
             numMethod = 0;
             system("CLS");
-            std::cout << selectedPokemon.name << ":\n";
-            currentMethod.printMethods(currentGame.methods);
+            currentMethod.printMethods(currentGame.methods, selectedPokemon.name);
             if (selectedPokemon.evolutionStage == 2) {
                 std::cout << Pokemonevolution1.name << ":\n";
-                currentMethod.printMethods(Gameevolution1.methods);
+                currentMethod.printMethods(Gameevolution1.methods, Pokemonevolution1.name);
             }
             if (selectedPokemon.evolutionStage == 2 || selectedPokemon.evolutionStage == 1) {
                 std::cout << Pokemonevolution0.name << ":\n";
-                currentMethod.printMethods(Gameevolution0.methods);
+                currentMethod.printMethods(Gameevolution0.methods, Pokemonevolution0.name);
             }
             std::cout << "\nEnter the number next to the method that you are using.\n";
             std::cin >> numMethod;

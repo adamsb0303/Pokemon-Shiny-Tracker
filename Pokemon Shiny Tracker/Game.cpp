@@ -23,17 +23,19 @@ Game::Game() {
 
 void Game::printGames(int pokemonGeneration) {
 	std::cout << "Games by Generation:\n";
-	for (int i = pokemonGeneration; i < 8; i++) {
-		std::cout << i + 1 << ". ";
-		for (int j = 0; j < 6; j++) {
-			if (j != 5 && Games[i][j+1].compare(" ") != 0)
-				std::cout << Games[i][j] << ", ";
-			else {
-				std::cout << Games[i][j];
-				break;
+	for (int i = pokemonGeneration - 1; i < 8; i++) {
+		if (!i == 0) {
+			std::cout << i + 1 << ". ";
+			for (int j = 0; j < 6; j++) {
+				if (j != 5 && Games[i][j + 1].compare(" ") != 0)
+					std::cout << Games[i][j] << ", ";
+				else {
+					std::cout << Games[i][j];
+					break;
+				}
 			}
+			std::cout << "\n";
 		}
-		std::cout << "\n";
 	}
 }
 
@@ -58,6 +60,7 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 	char pause = ' ';
 	if (generation == 0) {
 		std::cout << "The game that you entered was not recognized.";
+		std::cout << game;
 		pause = getchar();
 	}
 }
@@ -69,6 +72,7 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 	std::string pokemon;
 	selectedPokemon.special = false;
 	findMythicals(selectedPokemon);
+	findLegendaries(selectedPokemon);
 	findFish(selectedPokemon);
 	while (getline(gamePokedex, pokemon)) {
 		if (selectedPokemon.name.compare(pokemon) == 0) {
@@ -84,7 +88,7 @@ void Game::findMythicals(Pokemon& selectedPokemon) {
 	std::string mythics;
 	std::ifstream Mythicals("Game Data/Mythicals.txt");
 	while (getline(Mythicals, mythics)) {
-		if (name.compare(mythics) == 0) {
+		if (selectedPokemon.name.compare(mythics) == 0) {
 			selectedPokemon.special = true;
 			break;
 		}
@@ -110,12 +114,29 @@ void Game::findFish(Pokemon& selectedPokemon) {
 }
 
 void Game::findLegendaries(Pokemon& selectedPokemon) {
-
+	std::string legendaries;
+	std::ifstream legends("Game Data/Legendaries.txt");
+	while (getline(legends, legendaries)) {
+		if (selectedPokemon.name.compare(legendaries) == 0) {
+			selectedPokemon.special = true;
+		}
+	}
+	legends.close();
+	legendaries = "";
+	std::string filePath = "Game Data/Gen " + std::to_string(generation) + "/Legends" + name + ".txt";
+	std::ifstream gameLegends(filePath.c_str());
+	while (getline(gameLegends, legendaries)) {
+		if (selectedPokemon.name.compare(legendaries) == 0) {
+			selectedPokemon.special = false;
+			std::cout << true;
+			char pause = getchar();
+			break;
+		}
+	}
+	gameLegends.close();
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
-	if(!selectedPokemon.special)
-		methods[0] = "None";
 	switch (generation) {
 		case 2 :
 			numMethods = 2;
@@ -264,4 +285,14 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 		default:
 			break;
 	}
+
+	for (int i = 0; i < 15; i++) {
+		if (shinyLocked[i].compare(selectedPokemon.name) == 0) {
+			selectedPokemon.special = true;
+			break;
+		}
+	}
+
+	if (!selectedPokemon.special)
+		methods[0] = "None";
 }

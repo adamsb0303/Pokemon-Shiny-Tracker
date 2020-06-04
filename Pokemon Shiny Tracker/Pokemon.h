@@ -23,10 +23,6 @@ public:
 
 	void generatePokemonData(std::string inputName);
 
-	void getLocations(int generation, std::string name, bool isPresent);
-
-	void findMythicals(int generation, std::string game);
-
 	std::string splitString(std::string word, int wordNumber, char seperator);
 
 	void savePokemonData();

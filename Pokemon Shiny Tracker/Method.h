@@ -18,7 +18,7 @@ public:
 
 	Method();
 
-	void printMethods(std::string methods[5]);
+	void printMethods(std::string methods[5], std::string pokemonName);
 
 	void setMethod(std::string method, Game game, std::string selectedPokemon);
 
