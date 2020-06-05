@@ -5,10 +5,13 @@
 #include "Game.h"
 #include "Method.h"
 
+std::string pokemonSpellCheck(std::string input);
+
 int main() {
     Pokemon selectedPokemon = Pokemon();
     char pause = ' ';
     do {
+        system("CLS");
         std::string pokemonName;
         std::cout << "Please enter the Pokemon that you would like to hunt.\n";
         std::cin >> pokemonName;
@@ -35,6 +38,8 @@ int main() {
             for (int i = 0; i < pokemonName.length(); i++)
                 pokemonName[i] = tolower(pokemonName[i]);
             selectedPokemon.generatePokemonData(pokemonName);
+            //if (selectedPokemon.name.compare("") == 0);
+                //selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
         }
     } while (selectedPokemon.generation == 0);
     
@@ -44,6 +49,7 @@ int main() {
     if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
+            userGame = "";
             if (currentGame.findLegendaries(selectedPokemon)) {
                 currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);
             }
@@ -66,14 +72,14 @@ int main() {
         Game Gameevolution0 = Game();
         if (selectedPokemon.evolutionStage == 1 || selectedPokemon.evolutionStage == 2) {
             Pokemonevolution0.generatePokemonData(selectedPokemon.family[0]);
-            Gameevolution0.setCurrentGame(userGame, Pokemonevolution0);
+            Gameevolution0.setCurrentGame(currentGame.name, Pokemonevolution0);
         }
 
         Pokemon Pokemonevolution1 = Pokemon();
         Game Gameevolution1 = Game();
         if (selectedPokemon.evolutionStage == 2) {
             Pokemonevolution1.generatePokemonData(selectedPokemon.family[1]);
-            Gameevolution1.setCurrentGame(userGame, Pokemonevolution1);
+            Gameevolution1.setCurrentGame(currentGame.name, Pokemonevolution1);
         }
 
         int numMethod;
@@ -83,11 +89,9 @@ int main() {
             system("CLS");
             currentMethod.printMethods(currentGame.methods, selectedPokemon.name);
             if (selectedPokemon.evolutionStage == 2) {
-                std::cout << Pokemonevolution1.name << ":\n";
                 currentMethod.printMethods(Gameevolution1.methods, Pokemonevolution1.name);
             }
             if (selectedPokemon.evolutionStage == 2 || selectedPokemon.evolutionStage == 1) {
-                std::cout << Pokemonevolution0.name << ":\n";
                 currentMethod.printMethods(Gameevolution0.methods, Pokemonevolution0.name);
             }
             std::cout << "\nEnter the number next to the method that you are using.\n";
@@ -116,3 +120,32 @@ int main() {
     currentMethod.shinyHunt(selectedPokemon);
 }
 
+std::string pokemonSpellCheck(std::string input) {
+    std::ifstream Pokedex("Pokedex/~Pokedex.txt");
+    std::string check = "";
+    char YorN;
+    while (getline(Pokedex, check)) {
+        double same = 0;
+        int total = check.length();
+        { std::cout << check.length(); std::cout << " " << input.length(); char pause = getchar(); }
+            //total = check.length();
+
+        for (int i = 0; i < input.length() && i < check.length(); i++) {
+            if (tolower(input[i]) == tolower(check[i]))
+                same++;
+        }
+
+        if ((same / total) * 100 >= 90) {
+            return check;
+        }
+        else if ((same / total) * 100 >= 60) {
+            std::cout << "Did you mean " << check << "? y/n\n";
+            YorN = getchar();
+            YorN = getchar();
+            if (tolower(YorN) == 'y')
+                return check;
+        }
+    }
+    std::cout << "The Pokemon that you entered was not recognized.";
+    YorN = getchar();
+}

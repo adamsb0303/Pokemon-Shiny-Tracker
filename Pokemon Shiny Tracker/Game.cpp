@@ -69,8 +69,8 @@ void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 }
 
 void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
-	bool created = true;
-	for (int i = 0; i < 8 && created; i++) {
+	bool created = false;
+	for (int i = 0; i < 8 && !created; i++) {
 		for (int j = 0; j < 6; j++) {
 			std::string currentGame = Games[i][j];
 			for (int k = 0; k < game.length(); k++) {
@@ -78,11 +78,12 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 			}
 			for (int k = 0; k < currentGame.length(); k++)
 				currentGame[k] = tolower(currentGame[k]);
-			if (game.compare(currentGame) == 0) {
+			if (currentGame.compare(game) == 0) {
 				name = Games[i][j];
 				generation = i + 1;
 				getLocations(selectedPokemon);
 				generateMethods(generation, name, selectedPokemon);
+				created = true;
 			}
 		}
 	}
@@ -95,14 +96,13 @@ void Game::setCurrentGame(std::string game, Pokemon selectedPokemon) {
 }
 
 void Game::getLocations(Pokemon& selectedPokemon) {
-	std::string filePath = "Game Data/Gen " + std::to_string(generation);
-	filePath = filePath + "/" + name + ".txt";
+	std::string filePath = "Game Data/Gen " + std::to_string(generation) + "/" + name + ".txt";
 	std::ifstream gamePokedex(filePath.c_str());
 	std::string pokemon;
 	selectedPokemon.special = false;
 	selectedPokemon.special = findMythicals(selectedPokemon);
-	selectedPokemon.special = findLegendaries(selectedPokemon);
-	selectedPokemon.special = avaliableLegendary(selectedPokemon.name, name, generation);
+	if(findLegendaries(selectedPokemon))
+		selectedPokemon.special = avaliableLegendary(selectedPokemon.name, name, generation);
 	selectedPokemon.fish = findFish(selectedPokemon);
 	while (getline(gamePokedex, pokemon)) {
 		if (selectedPokemon.name.compare(pokemon) == 0) {

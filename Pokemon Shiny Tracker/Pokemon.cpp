@@ -19,19 +19,15 @@ Pokemon::Pokemon() {
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {
-    char pause = ' ';
     inputName = "Pokedex/" + inputName + ".txt";
     std::ifstream Data(inputName.c_str());
     if (!Data.is_open()) {
-        std::cout << "Pokemon not found.";
-        pause = getchar();
-        pause = getchar();
-        exit(1);
     }
-    std::string temp = "";
-    int counter = 0;
-    while (getline(Data, temp)) {
-        switch (counter) {
+    else {
+        std::string temp = "";
+        int counter = 0;
+        while (getline(Data, temp)) {
+            switch (counter) {
             case 0:
                 name = temp;
                 break;
@@ -65,10 +61,11 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 break;
             default:
                 break;
+            }
+            counter++;
         }
-        counter++;
+        Data.close();
     }
-    Data.close();
 }
 
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
