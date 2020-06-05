@@ -44,7 +44,11 @@ int main() {
     if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
-            currentGame.printGames(selectedPokemon.generation);
+            if (currentGame.findLegendaries(selectedPokemon)) {
+                currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);
+            }
+            else
+                currentGame.printGames(selectedPokemon.generation);
             std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
