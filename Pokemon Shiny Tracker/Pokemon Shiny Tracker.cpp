@@ -14,7 +14,7 @@ int main() {
         system("CLS");
         std::string pokemonName;
         std::cout << "Please enter the Pokemon that you would like to hunt.\n";
-        std::cin >> pokemonName;
+        getline(std::cin, pokemonName);
         if (pokemonName.length() > 20)
             std::cout << "The Pokemon was not recognized.";
         else {
@@ -38,8 +38,8 @@ int main() {
             for (int i = 0; i < pokemonName.length(); i++)
                 pokemonName[i] = tolower(pokemonName[i]);
             selectedPokemon.generatePokemonData(pokemonName);
-            //if (selectedPokemon.name.compare("") == 0);
-                //selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
+            if (selectedPokemon.name.compare("") == 0);
+                selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
         }
     } while (selectedPokemon.generation == 0);
     
@@ -122,30 +122,55 @@ int main() {
 
 std::string pokemonSpellCheck(std::string input) {
     std::ifstream Pokedex("Pokedex/~Pokedex.txt");
-    std::string check = "";
+    std::string check;
+    std::string possible;
+    double possiblePercent = 1;
     char YorN;
     while (getline(Pokedex, check)) {
+        std::string Pokemon = check;
         double same = 0;
-        int total = check.length();
-        { std::cout << check.length(); std::cout << " " << input.length(); char pause = getchar(); }
-            //total = check.length();
-
-        for (int i = 0; i < input.length() && i < check.length(); i++) {
-            if (tolower(input[i]) == tolower(check[i]))
-                same++;
+        int total;
+        if (check.length() > input.length()) {
+            total = check.length();
         }
-
+        else
+            total = input.length();
+        for (int i = 0; i < input.length() && i < Pokemon.length(); i++) {
+            if (tolower(input[i]) == tolower(Pokemon[i])) {
+                same++;
+                Pokemon[i] = NULL;
+            }
+            else {
+                for (int j = 0; j < check.length(); j++) {
+                    if (tolower(input[i]) == tolower(Pokemon[j])) {
+                        same++;
+                        Pokemon[i] = NULL;
+                        break;
+                    }
+                }
+            }
+        }
         if ((same / total) * 100 >= 90) {
             return check;
         }
-        else if ((same / total) * 100 >= 60) {
-            std::cout << "Did you mean " << check << "? y/n\n";
-            YorN = getchar();
-            YorN = getchar();
-            if (tolower(YorN) == 'y')
-                return check;
+        else if ((same / total) * 100 >= 60 && (same / total) * 100 > possiblePercent) {
+            possible = check;
+            possiblePercent = (same / total) * 100;
         }
+
     }
-    std::cout << "The Pokemon that you entered was not recognized.";
-    YorN = getchar();
+    if (!possible.empty()) {
+        std::cout << "Did you mean " << possible << "? y/n\n";
+        YorN = getchar();
+        YorN = getchar();
+        if (tolower(YorN) == 'y')
+            return check;
+        else
+            return " ";
+    }
+    else {
+        std::cout << "The Pokemon that you entered was not recognized.";
+        YorN = getchar();
+        return " ";
+    }
 }
