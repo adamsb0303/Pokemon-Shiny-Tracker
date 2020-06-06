@@ -105,11 +105,11 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
             std::cout << "Current Hunt: " << pokemon.name << "\n\nEnter:\n1 Caught\n2 Save and Exit\n3 Reset Counter\n4 Phase\n\n";
             if (phase != 0)
                 std::cout << "Phase " << phase << "\n\n";
-            pokemon.encounters++;
             Method::generateOdds(pokemon.encounters);
             std::cout << pokemon.encounters;
             userInput = getchar();
-            userInput = getchar();
+            if (userInput == '\n')
+                pokemon.encounters++;
             if (userInput == '3') {
                 pokemon.encounters = -1;
                 searchLevel -= 1;

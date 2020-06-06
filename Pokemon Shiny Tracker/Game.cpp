@@ -10,7 +10,7 @@ const std::string Games[8][6] = { {"Red", "Green", "Blue", "Yellow", " ", " "},
 								{"Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver", " "},
 								{"Black", "White","Black 2", "White 2", " ", " "},
 								{"X", "Y", "Omega Ruby", "Alpha Sapphire", " ", " "},
-								{"Sun", "Moon", "Ultra Sun", "Ultra Moon", "Let's Go Pikachu", "Let's Go Eevee"},
+								{"Sun", "Moon", "Ultra Sun", "Ultra Moon", "Lets Go Pikachu", "Lets Go Eevee"},
 								{"Sword", "Shield", " ", " ", " ", " "} };
 
 Game::Game() {
@@ -81,7 +81,6 @@ void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 			if (currentGame.compare(game) == 0) {
 				name = Games[i][j];
 				generation = i + 1;
-				selectedPokemon.getRegionalVariant(generation);
 				getLocations(selectedPokemon);
 				generateMethods(generation, name, selectedPokemon);
 			}
@@ -89,8 +88,7 @@ void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 	}
 	char pause = ' ';
 	if (generation == 0) {
-		std::cout << "The game that you entered was not recognized.";
-		std::cout << game;
+		std::cout << "The game that you entered was not recognized";
 		pause = getchar();
 	}
 }

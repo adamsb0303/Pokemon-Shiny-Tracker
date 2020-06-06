@@ -38,7 +38,7 @@ int main() {
             for (int i = 0; i < pokemonName.length(); i++)
                 pokemonName[i] = tolower(pokemonName[i]);
             selectedPokemon.generatePokemonData(pokemonName);
-            if (selectedPokemon.name.compare("") == 0);
+            if (selectedPokemon.name.empty())
                 selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
         }
     } while (selectedPokemon.generation == 0);
@@ -56,7 +56,10 @@ int main() {
             else
                 currentGame.printGames(selectedPokemon.generation);
             std::cout << "\nWhat game are you hunting in?\n\n";
+            pause = getchar();
             getline(std::cin, userGame);
+            if (pause != '\n')
+                userGame = pause + userGame;
             if (userGame.length() > 20) {
                 std::cout << "The game that you entered was not recognized.";
                 pause = getchar();
@@ -104,7 +107,7 @@ int main() {
             while (pause != 'y' && pause != 'n') {
                 system("CLS");
                 std::cout << "Do you have a Shiny Charm? y/n\n";
-                std::cin >> pause;
+                pause = getchar();
             }
             if (tolower(pause) == 'y') {
                 currentMethod.shinyCharm = true;
@@ -161,9 +164,9 @@ std::string pokemonSpellCheck(std::string input) {
     if (!possible.empty()) {
         std::cout << "Did you mean " << possible << "? y/n\n";
         YorN = getchar();
-        YorN = getchar();
-        if (tolower(YorN) == 'y')
-            return check;
+        if (tolower(YorN) == 'y') {
+            return possible;
+        }
         else
             return " ";
     }

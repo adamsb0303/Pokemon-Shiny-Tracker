@@ -23,7 +23,7 @@ public:
 
 	void generatePokemonData(std::string inputName);
 
-	void getRegionalVariant(int generation);
+	void getRegionalVariant(std::string& inputName);
 
 	std::string splitString(std::string word, int wordNumber, char seperator);
 

@@ -20,7 +20,8 @@ Pokemon::Pokemon() {
 
 void Pokemon::generatePokemonData(std::string inputName) {
     char option;
-    if (inputName.compare("basculin") == 0) {
+    inputName[0] = toupper(inputName[0]);
+    if (inputName.compare("Basculin") == 0) {
         std::cout << "Are you hunting Blue or Red Stripe Basculin? B/R\n";
         option = getchar();
         if (tolower(option) == 'b')
@@ -28,7 +29,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
         else if (tolower(option == 'r'))
             inputName = inputName + "R";
     }
-    if (inputName.compare("nidoran") == 0) {
+    if (inputName.compare("Nidoran") == 0) {
         std::cout << "Are you hunting Male or Female Nidroran? M/F\n";
         option = getchar();
         if (tolower(option) == 'm')
@@ -36,9 +37,14 @@ void Pokemon::generatePokemonData(std::string inputName) {
         else if (tolower(option == 'f'))
             inputName = inputName + "F";
     }
+
+    getRegionalVariant(inputName);
+
     inputName = "Pokedex/" + inputName + ".txt";
     std::ifstream Data(inputName.c_str());
-    if (!Data.is_open());
+    char pause;
+    if (!Data.is_open())
+        return;
     else {
         std::string temp = "";
         int counter = 0;
@@ -64,7 +70,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 break;
             case 6:
                 for (int i = 0; i < 4; i++)
-                    family[i] = splitString(temp, i + 1, ' ');
+                    family[i] = splitString(temp, i + 1, ', ');
                 break;
             case 7:
                 breedable = temp.compare("true") == 0;
@@ -78,36 +84,40 @@ void Pokemon::generatePokemonData(std::string inputName) {
     }
 }
 
-void Pokemon::getRegionalVariant(int gen) {
-    if (gen >= 7) {
-        std::string Alolan;
-        char userInput;
-        std::ifstream AlolaPokemon("Game Data/Alolan.txt");
-        while (getline(AlolaPokemon, Alolan)) {
-            if (name.compare(Alolan) == 0) {
-                std::cout << "Are you hunting the Alolan Variant? y/n\n";
+void Pokemon::getRegionalVariant(std::string& inputName) {
+    std::string Alolan;
+    char userInput;
+    std::ifstream AlolaPokemon("Game Data/Alolan.txt");
+    while (getline(AlolaPokemon, Alolan)) {
+        if (inputName.compare(Alolan) == 0) {
+            std::cout << "Are you hunting the Alolan Variant? y/n\n";
+            userInput = getchar();
+            if (userInput == '/n')
                 userInput = getchar();
-                if (userInput == 'y')
-                    name = "Alolan " + name;
+            if (tolower(userInput) == 'y') {
+                inputName = "Alolan " + inputName;
+                return;
             }
         }
-        AlolaPokemon.close();
     }
-    if (gen >= 8) {
-        std::string Galarian;
-        char userInput;
-        std::ifstream GalarPokemon("Game Data/Galarian.txt");
-        while (getline(GalarPokemon, Galarian)) {
-            if (name.compare(Galarian) == 0) {
-                std::cout << "Are you hunting the Galarian Variant? y/n\n";
+    AlolaPokemon.close();
+
+    std::string Galarian;
+    userInput = ' ';
+    std::ifstream GalarPokemon("Game Data/Galarian.txt");
+    while (getline(GalarPokemon, Galarian)) {
+        if (inputName.compare(Galarian) == 0) {
+            std::cout << "Are you hunting the Galarian Variant? y/n\n";
+            userInput = getchar();
+            if (userInput == '/n')
                 userInput = getchar();
-                userInput = getchar();
-                if (userInput == 'y')
-                    name = "Galarian " + name;
+            if (tolower(userInput) == 'y') {
+                inputName = "Galarian " + inputName;
+                return;
             }
         }
-        GalarPokemon.close();
     }
+    GalarPokemon.close();
 }
 
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
