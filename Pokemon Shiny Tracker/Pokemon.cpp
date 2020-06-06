@@ -19,10 +19,26 @@ Pokemon::Pokemon() {
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {
+    char option;
+    if (inputName.compare("basculin") == 0) {
+        std::cout << "Are you hunting Blue or Red Stripe Basculin? B/R\n";
+        option = getchar();
+        if (tolower(option) == 'b')
+            inputName = inputName + "B";
+        else if (tolower(option == 'r'))
+            inputName = inputName + "R";
+    }
+    if (inputName.compare("nidoran") == 0) {
+        std::cout << "Are you hunting Male or Female Nidroran? M/F\n";
+        option = getchar();
+        if (tolower(option) == 'm')
+            inputName = inputName + "M";
+        else if (tolower(option == 'f'))
+            inputName = inputName + "F";
+    }
     inputName = "Pokedex/" + inputName + ".txt";
     std::ifstream Data(inputName.c_str());
-    if (!Data.is_open()) {
-    }
+    if (!Data.is_open());
     else {
         std::string temp = "";
         int counter = 0;
