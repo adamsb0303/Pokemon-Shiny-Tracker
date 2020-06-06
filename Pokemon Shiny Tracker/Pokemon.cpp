@@ -54,7 +54,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 name = temp;
                 break;
             case 1:
-                encounters = std::stoi(temp) - 1;
+                encounters = std::stoi(temp);
                 break;
             case 2:
                 generation = std::stoi(temp);
@@ -132,12 +132,20 @@ void Pokemon::savePokemonData(std::string game, std::string method) {
     std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream Data(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
     Data << name + "\n";
-    Data << generation << "\n";
     Data << encounters << "\n";
+    Data << generation << "\n";
     Data << game << "\n";
     Data << method << "\n";
     Data << evolutionStage << "\n";
-    Data << breedable << "\n";
+    for (int i = 0; sizeof(family) / sizeof(family[0]); i++)
+        if (family[i].empty())
+            break;
+        else
+            Data << family[i] << ", ";
+    if (breedable)
+        Data << "\ntrue\n";
+    else
+        Data << "\nfalse\n";
     Data.close();
 }
 
@@ -148,12 +156,20 @@ void Pokemon::pokemonCaught(std::string pokemon) {
     std::ofstream pokemonData(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
     Data << name << ": " << encounters << " encounters" << "\n" ;
     pokemonData << name + "\n";
-    pokemonData << generation << "\n";
     pokemonData << 0 << "\n";
+    pokemonData << generation << "\n";
     pokemonData << "" << "\n";
     pokemonData << "" << "\n";
     pokemonData << evolutionStage << "\n";
-    pokemonData << breedable << "\n";
+    for (int i = 0; sizeof(family) / sizeof(family[0]); i++)
+        if (family[i].empty())
+            break;
+        else
+            pokemonData << family[i] << ", ";
+    if (breedable)
+        pokemonData << "\ntrue\n";
+    else
+        pokemonData << "\nfalse\n";
     pokemonData.close();
     Data.close();
 }
