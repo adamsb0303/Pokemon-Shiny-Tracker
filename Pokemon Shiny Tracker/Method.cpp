@@ -90,17 +90,21 @@ void Method::setMethod(std::string method, Game currentGame, std::string selecte
 }
 
 //The screen that the user sees during the shiny hunt
-void Method::shinyHunt(Pokemon pokemon) {
+void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
     pokemon.name[0] = toupper(pokemon.name[0]);
     char userInput = ' ';
+    int phase = 0;
     for (;;) {
         if (userInput != '1' && userInput != '2') {
+            userInput = ' ';
             system("CLS");
             if (name.compare("None") == 0)
-                std::cout << "Currently no method being used.\n";
+                std::cout << "Currently no method being used.\n\n";
             else
-                std::cout << "Currently using the " << name << " Method\n";
-            std::cout << "Current Hunt: " << pokemon.name << std::endl << "Enter:\n1 Caught\n2 Save and Exit\n3 Reset Counter\n\n";
+                std::cout << "Currently using the " << name << " Method\n\n";
+            std::cout << "Current Hunt: " << pokemon.name << "\n\nEnter:\n1 Caught\n2 Save and Exit\n3 Reset Counter\n4 Phase\n\n";
+            if (phase != 0)
+                std::cout << "Phase " << phase << "\n\n";
             pokemon.encounters++;
             Method::generateOdds(pokemon.encounters);
             std::cout << pokemon.encounters;
@@ -111,17 +115,24 @@ void Method::shinyHunt(Pokemon pokemon) {
                 searchLevel -= 1;
                 continue;
             }
+            if (userInput == '4') {
+                std::string phasePokemon;
+                getline(std::cin, phasePokemon);
+                pokemon.pokemonCaught(phasePokemon);
+                pokemon.encounters = -1;
+                phase++;
+            }
         }
         else
             break;
     } 
 
     if (userInput == '1') {
-        pokemon.pokemonCaught();
+        pokemon.pokemonCaught(pokemon.name);
         exit(0);
     }
     if (userInput == '2') {
-        pokemon.savePokemonData();
+        pokemon.savePokemonData(currentGame, name);
         exit(0);
     }
 }

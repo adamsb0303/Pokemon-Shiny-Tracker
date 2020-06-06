@@ -118,18 +118,32 @@ std::string Pokemon::splitString(std::string word, int wordNumber, char seperato
         return word.substr(0, index);
 }
 
-void Pokemon::savePokemonData() {
+void Pokemon::savePokemonData(std::string game, std::string method) {
     std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream Data(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
-    Data << name + ",";
-    Data << generation << ",";
-    Data << breedable << ",";
-    Data << encounters << ",";
+    Data << name + "\n";
+    Data << generation << "\n";
+    Data << encounters << "\n";
+    Data << game << "\n";
+    Data << method << "\n";
+    Data << evolutionStage << "\n";
+    Data << breedable << "\n";
     Data.close();
 }
 
-void Pokemon::pokemonCaught() {
+void Pokemon::pokemonCaught(std::string pokemon) {
     std::ofstream Data("Pokedex/~CaughtPokemon.txt");
-    Data << name << "\n";
+    pokemon[0] = tolower(pokemon[0]);
+    std::string filePath = "Pokedex/" + name + ".txt";
+    std::ofstream pokemonData(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
+    Data << name << ": " << encounters << " encounters" << "\n" ;
+    pokemonData << name + "\n";
+    pokemonData << generation << "\n";
+    pokemonData << 0 << "\n";
+    pokemonData << "" << "\n";
+    pokemonData << "" << "\n";
+    pokemonData << evolutionStage << "\n";
+    pokemonData << breedable << "\n";
+    pokemonData.close();
     Data.close();
 }

@@ -27,9 +27,9 @@ public:
 
 	std::string splitString(std::string word, int wordNumber, char seperator);
 
-	void savePokemonData();
+	void savePokemonData(std::string game, std::string method);
 
-	void pokemonCaught();
+	void pokemonCaught(std::string pokemon);
 };
 
 #endif

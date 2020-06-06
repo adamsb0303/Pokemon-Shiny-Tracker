@@ -116,7 +116,7 @@ int main() {
         currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
         currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.name);
     }
-    currentMethod.shinyHunt(selectedPokemon);
+    currentMethod.shinyHunt(selectedPokemon, currentGame.name);
 }
 
 std::string pokemonSpellCheck(std::string input) {

@@ -22,7 +22,7 @@ public:
 
 	void setMethod(std::string method, Game game, std::string selectedPokemon);
 
-	void shinyHunt(Pokemon pokemon);
+	void shinyHunt(Pokemon pokemon, std::string currentGame);
 
 	void generateOdds(double encounters);
 };
