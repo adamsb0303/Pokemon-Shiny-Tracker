@@ -16,7 +16,7 @@ public:
 
 	Game();
 
-	void printGames(int pokemonGeneration);
+	void printGames(int pokemonGeneration, std::string selectedPokemon);
 
 	void printGamesRestricted(int pokemonGeneration, std::string pokemonName);
 
@@ -24,15 +24,19 @@ public:
 
 	void getLocations(Pokemon& selectedPokemon);
 
-	bool findMythicals(Pokemon selectedPokemon);
+	bool findMythicals(std::string selectedPokemon);
 
-	bool findFish(Pokemon selectedPokemon);
+	bool findFish(std::string selectedPokemon);
 
-	bool findLegendaries(Pokemon selectedPokemon);
+	bool findLegendaries(std::string selectedPokemon);
 	
 	bool avaliableLegendary(std::string pokemonName, std::string gameName, int generation);
 
-	bool findSOS(Pokemon selectedPokemon);
+	bool findSOS(std::string selectedPokemon);
+
+	bool avaliableLetsGo(std::string selectedPokemon);
+
+	bool avaliableSWSH(std::string selectedPokemon);
 
 	void generateMethods(int generation, std::string game, Pokemon selectedPokemon);
 };

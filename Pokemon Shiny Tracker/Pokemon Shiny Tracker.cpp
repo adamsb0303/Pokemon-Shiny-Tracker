@@ -13,7 +13,7 @@ int main() {
     do {
         system("CLS");
         std::string pokemonName;
-        std::cout << "Please enter the Pokemon that you would like to hunt.\n";
+        std::cout << "Please enter the Pokemon that you would like to hunt or enter 'list' to see all previously caught shiny pokemon.\n";
         getline(std::cin, pokemonName);
         if (pokemonName.length() > 20)
             std::cout << "The Pokemon was not recognized.";
@@ -50,11 +50,11 @@ int main() {
         do {
             system("CLS");
             userGame = "";
-            if (currentGame.findLegendaries(selectedPokemon)) {
+            if (currentGame.findLegendaries(selectedPokemon.name)) {
                 currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);
             }
             else
-                currentGame.printGames(selectedPokemon.generation);
+                currentGame.printGames(selectedPokemon.generation, selectedPokemon.name);
             std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
@@ -98,7 +98,7 @@ int main() {
             }
             std::cout << "\nEnter the number next to the method that you are using.\n";
             std::cin >> numMethod;
-            if (numMethod > currentGame.numMethods) {
+            if (numMethod > selectedPokemon.method.length()) {
                 std::cout << "The number that you entered exceeds the number of methods listed.";
                 pause = getchar();
             }
