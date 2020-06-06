@@ -888,3 +888,35 @@ Dragapult
 Zacian
 Zamazenta
 Eternatus
+Alolan Rattata
+Alolan Raticate
+Alolan Raichu
+Alolan Sandshrew
+Alolan Sandslash
+Alolan Vulpix
+Alolan Ninetales
+Alolan Diglett
+Alolan Dugtrio
+Alolan Meowth
+Alolan Persian
+Alolan Geodude
+Alolan Graveler
+Alolan Golem
+Alolan Grimer
+Alolan Muk
+Alolan Exeggutor
+Alolan Marowak
+Galarian Meowth
+Galarian Ponyta
+Galarian Rapidash
+Galarian Slowpoke
+Galarian Farfetchd
+Galarian Weezing
+Galarian Mr Mime
+Galarian Corsola
+Galarian Zigzagoon
+Galarian Linoone
+Galarian Darumaka
+Galarian Darmanitan
+Galarian Yamask
+Galarian Stunfisk

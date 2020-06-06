@@ -62,6 +62,38 @@ void Pokemon::generatePokemonData(std::string inputName) {
     }
 }
 
+void Pokemon::getRegionalVariant(int gen) {
+    if (gen >= 7) {
+        std::string Alolan;
+        char userInput;
+        std::ifstream AlolaPokemon("Game Data/Alolan.txt");
+        while (getline(AlolaPokemon, Alolan)) {
+            if (name.compare(Alolan) == 0) {
+                std::cout << "Are you hunting the Alolan Variant? y/n\n";
+                userInput = getchar();
+                if (userInput == 'y')
+                    name = "Alolan " + name;
+            }
+        }
+        AlolaPokemon.close();
+    }
+    if (gen >= 8) {
+        std::string Galarian;
+        char userInput;
+        std::ifstream GalarPokemon("Game Data/Galarian.txt");
+        while (getline(GalarPokemon, Galarian)) {
+            if (name.compare(Galarian) == 0) {
+                std::cout << "Are you hunting the Galarian Variant? y/n\n";
+                userInput = getchar();
+                userInput = getchar();
+                if (userInput == 'y')
+                    name = "Galarian " + name;
+            }
+        }
+        GalarPokemon.close();
+    }
+}
+
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
     int index = word.find(seperator);
     if (wordNumber > 1)

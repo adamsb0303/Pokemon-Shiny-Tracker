@@ -42,7 +42,7 @@ int main() {
                 selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
         }
     } while (selectedPokemon.generation == 0);
-    
+
     Method currentMethod = Method();
     Game currentGame = Game();
     std::string userGame;
