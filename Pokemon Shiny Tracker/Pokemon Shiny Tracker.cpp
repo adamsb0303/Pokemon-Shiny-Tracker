@@ -46,7 +46,7 @@ int main() {
     Method currentMethod = Method();
     Game currentGame = Game();
     std::string userGame;
-    if (selectedPokemon.encounters == 0) {
+    if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
             userGame = "";
@@ -113,13 +113,11 @@ int main() {
                 currentMethod.shinyCharm = true;
             }
         }
-        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.name);
+        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.name, selectedPokemon.shinyCharm);
     }
     else {
-        std::cout << selectedPokemon.encounters << " " << selectedPokemon.game << " " << selectedPokemon.method;
-        char pause = getchar();
         currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
-        currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.name);
+        currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.name, selectedPokemon.shinyCharm);
     }
     currentMethod.shinyHunt(selectedPokemon, currentGame.name);
 }

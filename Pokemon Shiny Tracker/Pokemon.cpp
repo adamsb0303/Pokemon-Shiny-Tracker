@@ -16,6 +16,7 @@ Pokemon::Pokemon() {
     fish = false;
     sos = false;
     special = false;
+    shinyCharm = false;
 }
 
 void Pokemon::generatePokemonData(std::string inputName) {
@@ -54,7 +55,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 name = temp;
                 break;
             case 1:
-                encounters = std::stoi(temp);
+                encounters = std::stoi(temp) - 1;
                 break;
             case 2:
                 generation = std::stoi(temp);
@@ -74,6 +75,9 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 break;
             case 7:
                 breedable = temp.compare("true") == 0;
+                break;
+            case 8:
+                shinyCharm = temp.compare("true") == 0;
                 break;
             default:
                 break;
@@ -103,14 +107,12 @@ void Pokemon::getRegionalVariant(std::string& inputName) {
     AlolaPokemon.close();
 
     std::string Galarian;
-    userInput = ' ';
     std::ifstream GalarPokemon("Game Data/Galarian.txt");
     while (getline(GalarPokemon, Galarian)) {
         if (inputName.compare(Galarian) == 0) {
             std::cout << "Are you hunting the Galarian Variant? y/n\n";
             userInput = getchar();
-            if (userInput == '/n')
-                userInput = getchar();
+            userInput = getchar();
             if (tolower(userInput) == 'y') {
                 inputName = "Galarian " + inputName;
                 return;
@@ -128,13 +130,16 @@ std::string Pokemon::splitString(std::string word, int wordNumber, char seperato
         return word.substr(0, index);
 }
 
-void Pokemon::savePokemonData(std::string game, std::string method) {
+void Pokemon::savePokemonData(std::string game, std::string method, bool shinyCharm) {
     std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream Data(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
     Data << name + "\n";
     Data << encounters << "\n";
     Data << generation << "\n";
-    Data << game << "\n";
+    Data << game;
+    if (shinyCharm)
+        Data << "S";
+    Data << "\n";
     Data << method << "\n";
     Data << evolutionStage << "\n";
     for (int i = 0; sizeof(family) / sizeof(family[0]); i++)
@@ -143,6 +148,10 @@ void Pokemon::savePokemonData(std::string game, std::string method) {
         else
             Data << family[i] << ", ";
     if (breedable)
+        Data << "\ntrue\n";
+    else
+        Data << "\nfalse\n";
+    if (shinyCharm)
         Data << "\ntrue\n";
     else
         Data << "\nfalse\n";

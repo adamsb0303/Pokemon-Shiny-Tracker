@@ -18,6 +18,7 @@ public:
 	bool fish;
 	bool sos;
 	bool special;
+	bool shinyCharm;
 
 	Pokemon();
 
@@ -27,7 +28,7 @@ public:
 
 	std::string splitString(std::string word, int wordNumber, char seperator);
 
-	void savePokemonData(std::string game, std::string method);
+	void savePokemonData(std::string game, std::string method, bool shinyCharm);
 
 	void pokemonCaught(std::string pokemon, std::string game, std::string method);
 };

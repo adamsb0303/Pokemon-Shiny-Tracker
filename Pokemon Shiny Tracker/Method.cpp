@@ -31,11 +31,11 @@ void Method::printMethods(std::string methods[5], std::string pokemonName) {
 }
 
 //Sets Method Data for specified game
-void Method::setMethod(std::string method, Game currentGame, std::string selectedPokemon) {
+void Method::setMethod(std::string method, Game currentGame, std::string selectedPokemon, bool hasCharm) {
     if (currentGame.generation >= 5)//doubles shiny chances if its a gen 5 or higher game
         base = base/2;
-    if (method.substr(method.length() - 2, method.length() - 1).compare("S") == 0 && currentGame.generation >= 5)//checks file for tag specifying shiny charm
-        shinyCharm = true;
+    if(hasCharm)
+        shinyCharm = hasCharm;//checks file for tag specifying shiny charm
     if (currentGame.name.substr(0, 3).compare("Let") == 0) {//checks for either of the lets go games and asks if a lure is being used
         char yn;
         std::cout << "Are you using a Lure? y/n\n";
@@ -94,6 +94,7 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
     pokemon.name[0] = toupper(pokemon.name[0]);
     char userInput = ' ';
     int phase = 0;
+    previousEncounters--;
     for (;;) {
         if (userInput != '1' && userInput != '2') {
             userInput = ' ';
@@ -108,11 +109,15 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
             Method::generateOdds(pokemon.encounters);
             std::cout << pokemon.encounters;
             userInput = getchar();
-            if (userInput == '\n')
+
+            if (userInput == '\n') {
                 pokemon.encounters++;
+                previousEncounters++;
+            }
             if (userInput == '3') {
-                pokemon.encounters = -1;
-                searchLevel -= 1;
+                pokemon.encounters--;
+                searchLevel--;
+                previousEncounters--;
                 continue;
             }
             if (userInput == '4') {
@@ -132,7 +137,7 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
         exit(0);
     }
     if (userInput == '2') {
-        pokemon.savePokemonData(currentGame, name);
+        pokemon.savePokemonData(currentGame, name, shinyCharm);
         exit(0);
     }
 }
@@ -216,19 +221,18 @@ void Method::generateOdds(double encounters) {
     }
     //1-50 no change. 50-100 add 1 to modifier. 100-200 add 2. 200-300 add 3. 300-500 add 4. >500 add 5
     else if (name.compare("Total Encounters") == 0) {
-        int totalEncounters = previousEncounters + encounters;
-        std::cout << totalEncounters << " Total Encounters\n";
-        if(totalEncounters <= 50)
+        std::cout << previousEncounters << " Total Encounters\n";
+        if(previousEncounters < 50)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier, base) << "\n\n";
-        else if(totalEncounters > 50 && totalEncounters <= 100)
+        else if(previousEncounters >= 50 && previousEncounters < 100)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 1.0, base) << "\n\n";
-        else if (totalEncounters > 100 && totalEncounters <= 200)
+        else if (previousEncounters >= 100 && previousEncounters < 200)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 2.0, base) << "\n\n";
-        else if (totalEncounters > 200 && totalEncounters <= 300)
+        else if (previousEncounters >= 200 && previousEncounters < 300)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 3.0, base) << "\n\n";
-        else if (totalEncounters > 300 && totalEncounters <= 500)
+        else if (previousEncounters >= 300 && previousEncounters < 500)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 4.0, base) << "\n\n";
-        else if (totalEncounters > 500)
+        else if (previousEncounters >= 500)
             std::cout << "Current Shiny Chance\n1/" << simpilifyFraction(modifier + 5.0, base) << "\n\n";
     }
     //methods such as Masuda and None are caught here
