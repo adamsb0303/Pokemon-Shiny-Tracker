@@ -118,7 +118,7 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
             if (userInput == '4') {
                 std::string phasePokemon;
                 getline(std::cin, phasePokemon);
-                pokemon.pokemonCaught(phasePokemon);
+                pokemon.pokemonCaught(phasePokemon, currentGame, name);
                 pokemon.encounters = -1;
                 phase++;
             }
@@ -128,7 +128,7 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
     } 
 
     if (userInput == '1') {
-        pokemon.pokemonCaught(pokemon.name);
+        pokemon.pokemonCaught(pokemon.name, currentGame, name);
         exit(0);
     }
     if (userInput == '2') {

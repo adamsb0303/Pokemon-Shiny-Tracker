@@ -149,12 +149,12 @@ void Pokemon::savePokemonData(std::string game, std::string method) {
     Data.close();
 }
 
-void Pokemon::pokemonCaught(std::string pokemon) {
+void Pokemon::pokemonCaught(std::string pokemon, std::string game, std::string method) {
     std::ofstream Data("Pokedex/~CaughtPokemon.txt");
     pokemon[0] = tolower(pokemon[0]);
     std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream pokemonData(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
-    Data << name << ": " << encounters << " encounters" << "\n" ;
+    Data << name << ": " << encounters << " encounters | Pokemon " << game << " | " << method << "\n" ;
     pokemonData << name + "\n";
     pokemonData << 0 << "\n";
     pokemonData << generation << "\n";

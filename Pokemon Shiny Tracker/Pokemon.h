@@ -29,7 +29,7 @@ public:
 
 	void savePokemonData(std::string game, std::string method);
 
-	void pokemonCaught(std::string pokemon);
+	void pokemonCaught(std::string pokemon, std::string game, std::string method);
 };
 
 #endif
