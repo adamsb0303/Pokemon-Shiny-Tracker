@@ -104,6 +104,7 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 	if(findLegendaries(selectedPokemon))
 		selectedPokemon.special = avaliableLegendary(selectedPokemon.name, name, generation);
 	selectedPokemon.fish = findFish(selectedPokemon);
+	selectedPokemon.sos = findSOS(selectedPokemon);
 	while (getline(gamePokedex, pokemon)) {
 		if (selectedPokemon.name.compare(pokemon) == 0) {
 			if (!selectedPokemon.fish && !selectedPokemon.special)
@@ -169,6 +170,27 @@ bool Game::avaliableLegendary(std::string pokemonName, std::string gameName, int
 	}
 	gameLegends.close();
 	return true;
+}
+
+bool Game::findSOS(Pokemon selectedPokemon) {
+	std::string sosPokemon = "";
+	std::ifstream SOS;
+	if (name.substr(0, 5).compare("Ultra") == 0)
+		SOS.open("Game Data/Gen 7/SOSUltra.txt");
+	else
+		SOS.open("Game Data/Gen 7/SOS.txt");
+	while (getline(SOS, sosPokemon)) {
+		if (selectedPokemon.name.compare(sosPokemon) == 0) {
+			return true;
+			break;
+		}
+	}
+	if (selectedPokemon.name.compare("Baltoy") == 0 && name.compare("Ultra Moon") == 0)
+		return true;
+	if (selectedPokemon.name.compare("Golett") == 0 && name.compare("Ultra Sun") == 0)
+		return true;
+	SOS.close();
+	return false;
 }
 
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {

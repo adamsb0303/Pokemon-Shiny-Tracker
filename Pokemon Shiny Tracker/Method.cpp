@@ -8,7 +8,7 @@
 Method::Method() {
 	modifier = 1;
     base = 8192;
-    previousEncounters = -2;
+    previousEncounters = 0;
     searchLevel = 0;
 	shinyCharm = false;
 	lure = false;
@@ -17,7 +17,7 @@ Method::Method() {
 //Prints the methods from the array that was taken from the game that is being used
 void Method::printMethods(std::string methods[5], std::string pokemonName) {
     if (methods[0] == " ") {
-        std::cout << "This pokemon is not avaliable in the game that you selected.";
+        std::cout << "This pokemon cannot be found shiny in the game that you selected.";
         char pause = getchar();
         exit(0);
     }
@@ -32,14 +32,6 @@ void Method::printMethods(std::string methods[5], std::string pokemonName) {
 
 //Sets Method Data for specified game
 void Method::setMethod(std::string method, Game currentGame, std::string selectedPokemon) {
-    char pause = ' ';
-    for (int i = 0; i < 15; i++) {
-        if (currentGame.shinyLocked[i].compare(selectedPokemon) == 0) {
-            std::cout << selectedPokemon << " is shiny locked in " << currentGame.name;
-            pause = getchar();
-            exit(0);
-        }
-    }
     if (currentGame.generation >= 5)//doubles shiny chances if its a gen 5 or higher game
         base = base/2;
     if (method.substr(method.length() - 2, method.length() - 1).compare("S") == 0 && currentGame.generation >= 5)//checks file for tag specifying shiny charm

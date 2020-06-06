@@ -56,7 +56,6 @@ int main() {
             else
                 currentGame.printGames(selectedPokemon.generation);
             std::cout << "\nWhat game are you hunting in?\n\n";
-            pause = getchar();
             getline(std::cin, userGame);
             if (userGame.length() > 20) {
                 std::cout << "The game that you entered was not recognized.";

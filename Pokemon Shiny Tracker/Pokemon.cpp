@@ -53,12 +53,6 @@ void Pokemon::generatePokemonData(std::string inputName) {
             case 7:
                 breedable = temp.compare("true") == 0;
                 break;
-            case 8:
-                fish = temp.compare("true") == 0;
-                break;
-            case 9:
-                sos = temp.compare("true") == 0;
-                break;
             default:
                 break;
             }

@@ -1,0 +1,11 @@
+Abomasnow
+0
+4
+
+
+1
+Snover 
+true
+false
+false
+false

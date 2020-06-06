@@ -6,6 +6,3 @@ Bulbasaur
 0
 
 true
-false
-false
-false

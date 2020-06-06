@@ -2,10 +2,3 @@ Venusaur
 0
 1
 
-
-2
-Bulbasaur Ivysaur 
-true
-false
-false
-false

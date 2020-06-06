@@ -32,6 +32,8 @@ public:
 	
 	bool avaliableLegendary(std::string pokemonName, std::string gameName, int generation);
 
+	bool findSOS(Pokemon selectedPokemon);
+
 	void generateMethods(int generation, std::string game, Pokemon selectedPokemon);
 };
 
