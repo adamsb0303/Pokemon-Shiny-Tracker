@@ -1,2 +1,2 @@
 # Pokemon-Shiny-Tracker
-Application to track shiny hunts
+This applicaiton tracks the number of pokemon that you have encountered on your hunt for the shiny of your choice.
