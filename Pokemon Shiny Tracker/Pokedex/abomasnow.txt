@@ -4,5 +4,5 @@ Abomasnow
 
 
 1
-Snover, 
+Snover,
 true

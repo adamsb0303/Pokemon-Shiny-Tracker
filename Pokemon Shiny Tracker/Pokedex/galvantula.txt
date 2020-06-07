@@ -2,3 +2,7 @@ Galvantula
 0
 5
 
+
+1
+Joltik,
+true

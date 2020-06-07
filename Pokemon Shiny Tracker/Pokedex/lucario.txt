@@ -2,3 +2,7 @@ Lucario
 0
 4
 
+
+1
+Riolu,
+true

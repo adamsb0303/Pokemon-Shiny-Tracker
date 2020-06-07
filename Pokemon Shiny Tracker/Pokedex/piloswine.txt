@@ -2,3 +2,7 @@ Piloswine
 0
 2
 
+
+1
+Swinub,
+true

@@ -2,3 +2,7 @@ Electabuzz
 0
 1
 
+
+1
+Elekid,
+true

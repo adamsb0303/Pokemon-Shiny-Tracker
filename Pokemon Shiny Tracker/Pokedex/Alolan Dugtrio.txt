@@ -4,5 +4,5 @@ Alolan Dugtrio
 
 
 1
-Alolan Diglett, 
+Alolan Diglett,
 true

@@ -2,3 +2,7 @@ Darmanitan
 0
 5
 
+
+1
+Darumaka,
+true

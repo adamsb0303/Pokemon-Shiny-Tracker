@@ -2,3 +2,7 @@ Rapidash
 0
 1
 
+
+1
+Ponyta,
+true

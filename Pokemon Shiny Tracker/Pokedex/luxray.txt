@@ -2,3 +2,7 @@ Luxray
 0
 4
 
+
+2
+Shinx,Luxio,
+true

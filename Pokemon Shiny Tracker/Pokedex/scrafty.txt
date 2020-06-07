@@ -2,3 +2,7 @@ Scrafty
 0
 5
 
+
+1
+Scraggy,
+true

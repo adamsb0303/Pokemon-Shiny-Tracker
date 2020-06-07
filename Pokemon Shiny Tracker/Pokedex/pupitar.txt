@@ -2,3 +2,7 @@ Pupitar
 0
 2
 
+
+1
+Larvitar,
+true

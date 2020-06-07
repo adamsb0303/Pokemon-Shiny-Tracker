@@ -2,3 +2,7 @@ Fletchinder
 0
 6
 
+
+1
+Fletchling,
+true

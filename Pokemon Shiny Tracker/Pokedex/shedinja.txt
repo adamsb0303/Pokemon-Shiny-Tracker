@@ -2,3 +2,7 @@ Shedinja
 0
 3
 
+
+1
+Nincada,
+true

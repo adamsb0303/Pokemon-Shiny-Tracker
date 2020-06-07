@@ -2,3 +2,7 @@ Dragalge
 0
 6
 
+
+1
+Skrelp,
+true

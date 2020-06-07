@@ -2,3 +2,7 @@ Metagross
 0
 3
 
+
+2
+Beldum,Metang,
+true

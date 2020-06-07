@@ -2,3 +2,7 @@ Wobbuffet
 0
 2
 
+
+1
+Wobbuffet,
+true

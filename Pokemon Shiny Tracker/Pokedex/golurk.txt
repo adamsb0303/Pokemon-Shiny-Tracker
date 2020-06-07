@@ -2,3 +2,7 @@ Golurk
 0
 5
 
+
+1
+Golett,
+true

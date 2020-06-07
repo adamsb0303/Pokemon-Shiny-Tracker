@@ -2,3 +2,7 @@ Umbreon
 0
 2
 
+
+1
+Eevee,
+true

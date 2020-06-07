@@ -2,3 +2,7 @@ Swalot
 0
 3
 
+
+1
+Gulpin,
+true

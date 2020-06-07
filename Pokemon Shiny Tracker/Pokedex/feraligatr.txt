@@ -2,3 +2,7 @@ Feraligatr
 0
 2
 
+
+2
+Totodile,Croconaw,
+true

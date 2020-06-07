@@ -2,3 +2,7 @@ Electrode
 0
 1
 
+
+1
+Voltorb,
+true

@@ -2,3 +2,7 @@ Corviknight
 0
 8
 
+
+2
+Rookidee,Corvisquire,
+true

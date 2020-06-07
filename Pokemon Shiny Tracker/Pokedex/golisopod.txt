@@ -2,3 +2,7 @@ Golisopod
 0
 7
 
+
+1
+Wimpod,
+true

@@ -2,3 +2,7 @@ Trevenant
 0
 6
 
+
+1
+Phantump,
+true

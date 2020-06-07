@@ -2,3 +2,7 @@ Togedemaru
 0
 7
 
+
+0
+
+true

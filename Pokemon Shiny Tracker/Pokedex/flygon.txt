@@ -2,3 +2,7 @@ Flygon
 0
 3
 
+
+2
+Trapinch,Vibrava,
+true

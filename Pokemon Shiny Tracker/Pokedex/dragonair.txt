@@ -2,3 +2,7 @@ Dragonair
 0
 1
 
+
+1
+Dratini,
+true

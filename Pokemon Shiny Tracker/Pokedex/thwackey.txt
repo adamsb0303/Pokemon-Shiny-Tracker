@@ -2,3 +2,7 @@ Thwackey
 0
 8
 
+
+1
+Grookey,
+true

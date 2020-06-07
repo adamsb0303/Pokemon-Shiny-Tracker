@@ -2,3 +2,7 @@ Hippowdon
 0
 4
 
+
+1
+Hippopotas,
+true

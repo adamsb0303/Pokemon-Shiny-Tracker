@@ -2,3 +2,7 @@ Crabominable
 0
 7
 
+
+1
+Crabrawler,
+true

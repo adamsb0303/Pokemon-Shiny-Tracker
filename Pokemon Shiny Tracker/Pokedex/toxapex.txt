@@ -2,3 +2,7 @@ Toxapex
 0
 7
 
+
+1
+Mareanie,
+true

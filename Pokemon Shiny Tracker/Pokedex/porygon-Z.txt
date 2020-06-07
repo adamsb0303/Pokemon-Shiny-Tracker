@@ -2,3 +2,7 @@ Porygon-Z
 0
 4
 
+
+2
+Porygon,Porygon2,
+true

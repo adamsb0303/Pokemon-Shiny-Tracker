@@ -4,5 +4,5 @@ Alolan Raticate
 
 
 1
-Alolan Rattata, 
+Alolan Rattata,
 true

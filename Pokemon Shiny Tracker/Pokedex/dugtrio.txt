@@ -2,3 +2,7 @@ Dugtrio
 0
 1
 
+
+1
+Diglett,
+true

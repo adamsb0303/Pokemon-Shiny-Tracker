@@ -2,3 +2,7 @@ Machamp
 0
 1
 
+
+2
+Machop,Machoke,
+true

@@ -2,3 +2,7 @@ Centiskorch
 0
 8
 
+
+1
+Sizzlipede,
+true

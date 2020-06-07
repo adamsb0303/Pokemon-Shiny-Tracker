@@ -2,3 +2,7 @@ Bronzong
 0
 4
 
+
+1
+Bronzor,
+true

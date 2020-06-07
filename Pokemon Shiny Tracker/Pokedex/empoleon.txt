@@ -2,3 +2,7 @@ Empoleon
 0
 4
 
+
+2
+Piplup,Prinplup,
+true

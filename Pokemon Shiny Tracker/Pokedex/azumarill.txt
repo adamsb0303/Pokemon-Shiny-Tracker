@@ -2,3 +2,7 @@ Azumarill
 0
 2
 
+
+2
+Azurill,Marill,
+true

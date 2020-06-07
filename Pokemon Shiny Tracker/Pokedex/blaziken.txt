@@ -2,3 +2,7 @@ Blaziken
 0
 3
 
+
+2
+Torchic,Combusken,
+true

@@ -2,3 +2,7 @@ Alakazam
 0
 1
 
+
+2
+Abra,Kadabra,
+true

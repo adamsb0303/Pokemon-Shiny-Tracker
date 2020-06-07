@@ -2,3 +2,7 @@ Zebstrika
 0
 5
 
+
+1
+Blitzle,
+true

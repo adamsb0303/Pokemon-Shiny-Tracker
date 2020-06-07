@@ -2,3 +2,7 @@ Eelektrik
 0
 5
 
+
+1
+Tynamo,
+true

@@ -2,3 +2,7 @@ Perrserker
 0
 8
 
+
+1
+Galarian Meowth,
+true

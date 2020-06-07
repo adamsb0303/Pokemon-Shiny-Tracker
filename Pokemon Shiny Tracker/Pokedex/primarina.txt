@@ -2,3 +2,7 @@ Primarina
 0
 7
 
+
+2
+Popplio,Brionne,
+true

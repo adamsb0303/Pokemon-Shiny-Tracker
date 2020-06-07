@@ -2,3 +2,7 @@ Mamoswine
 0
 4
 
+
+2
+Swinub,Piloswine,
+true

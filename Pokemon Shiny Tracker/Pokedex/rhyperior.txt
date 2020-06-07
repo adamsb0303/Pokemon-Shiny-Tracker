@@ -2,3 +2,7 @@ Rhyperior
 0
 4
 
+
+2
+Rhydon,Rhyhorn,
+true

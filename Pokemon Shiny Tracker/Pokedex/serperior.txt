@@ -2,3 +2,7 @@ Serperior
 0
 5
 
+
+2
+Snivy,Servine,
+true

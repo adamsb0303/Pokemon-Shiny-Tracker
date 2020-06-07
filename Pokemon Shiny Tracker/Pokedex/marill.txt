@@ -2,3 +2,7 @@ Marill
 0
 2
 
+
+1
+Azurill,
+true

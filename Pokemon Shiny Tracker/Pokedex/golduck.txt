@@ -2,3 +2,7 @@ Golduck
 0
 1
 
+
+1
+Psyduck,
+true

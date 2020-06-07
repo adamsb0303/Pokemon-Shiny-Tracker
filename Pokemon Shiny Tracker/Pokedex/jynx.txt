@@ -2,3 +2,7 @@ Jynx
 0
 1
 
+
+1
+Smoochum,
+true

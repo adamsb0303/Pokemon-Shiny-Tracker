@@ -2,3 +2,7 @@ Dustox
 0
 3
 
+
+2
+Wurmple,Cascoon,
+true

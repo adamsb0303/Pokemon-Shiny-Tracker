@@ -4,5 +4,5 @@ Galarian Mr Mime
 
 
 1
-Mime Jr, 
+Mime Jr,
 true

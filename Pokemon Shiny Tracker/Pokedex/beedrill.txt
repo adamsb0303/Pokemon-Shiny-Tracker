@@ -2,3 +2,7 @@ Beedrill
 0
 1
 
+
+2
+Weedle,Kakuna,
+true

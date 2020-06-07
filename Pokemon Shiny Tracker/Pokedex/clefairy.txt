@@ -2,3 +2,7 @@ Clefairy
 0
 1
 
+
+1
+Cleffa,
+true

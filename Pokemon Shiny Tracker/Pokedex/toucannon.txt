@@ -2,3 +2,7 @@ Toucannon
 0
 7
 
+
+2
+Pikipek,Trumbeak,
+true

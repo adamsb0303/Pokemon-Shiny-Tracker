@@ -2,3 +2,7 @@ Kingdra
 0
 2
 
+
+2
+Horsea,Seadra,
+true

@@ -2,3 +2,7 @@ Carkol
 0
 8
 
+
+1
+Rolycoly,
+true

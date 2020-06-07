@@ -2,3 +2,7 @@ Ludicolo
 0
 3
 
+
+2
+Lotad,Lombre,
+true

@@ -2,3 +2,7 @@ Avalugg
 0
 6
 
+
+1
+Bergmite,
+true

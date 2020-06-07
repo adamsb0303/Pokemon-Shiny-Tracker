@@ -4,5 +4,5 @@ Alolan Ninetales
 
 
 1
-Alolan Vulpix, 
+Alolan Vulpix,
 true

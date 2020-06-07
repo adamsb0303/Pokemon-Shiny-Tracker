@@ -2,3 +2,7 @@ Monferno
 0
 4
 
+
+1
+Chimchar,
+true

@@ -2,3 +2,7 @@ Luxio
 0
 4
 
+
+1
+Shinx,
+true

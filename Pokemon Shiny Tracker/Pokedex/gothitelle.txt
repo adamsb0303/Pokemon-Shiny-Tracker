@@ -2,3 +2,7 @@ Gothitelle
 0
 5
 
+
+2
+Gothita,Gothorita,
+true

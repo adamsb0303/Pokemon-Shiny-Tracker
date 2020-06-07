@@ -2,3 +2,7 @@ Grapploct
 0
 8
 
+
+1
+Clobbopus,
+true

@@ -2,3 +2,7 @@ Slaking
 0
 3
 
+
+2
+Slakoth,Vigoroth,
+true

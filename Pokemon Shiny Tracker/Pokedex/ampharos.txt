@@ -2,3 +2,7 @@ Ampharos
 0
 2
 
+
+2
+Mareep,Flaaffy,
+true

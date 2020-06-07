@@ -2,3 +2,7 @@ Prinplup
 0
 4
 
+
+1
+Pipulp,
+true

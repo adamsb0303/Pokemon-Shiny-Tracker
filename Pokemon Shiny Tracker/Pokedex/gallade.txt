@@ -2,3 +2,7 @@ Gallade
 0
 4
 
+
+2
+Ralts,Kirlia,
+true

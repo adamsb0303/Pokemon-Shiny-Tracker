@@ -2,3 +2,7 @@ Mr. Mime
 0
 1
 
+
+1
+Mime Jr
+true

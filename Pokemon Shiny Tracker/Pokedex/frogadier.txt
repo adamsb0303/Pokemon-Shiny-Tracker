@@ -2,3 +2,7 @@ Frogadier
 0
 6
 
+
+1
+Froakie,
+true

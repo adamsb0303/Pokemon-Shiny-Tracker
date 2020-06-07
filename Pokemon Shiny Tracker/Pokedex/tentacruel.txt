@@ -2,3 +2,7 @@ Tentacruel
 0
 1
 
+
+1
+Tentacool,
+true

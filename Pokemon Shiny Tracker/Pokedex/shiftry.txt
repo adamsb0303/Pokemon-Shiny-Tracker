@@ -2,3 +2,7 @@ Shiftry
 0
 3
 
+
+2
+Seedot,Nuzleaf,
+true

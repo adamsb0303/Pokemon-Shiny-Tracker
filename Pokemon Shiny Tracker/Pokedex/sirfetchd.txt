@@ -1,0 +1,8 @@
+Sirfetchd
+0
+8
+
+
+1
+Galarian Farfetchd,
+true

@@ -4,5 +4,5 @@ Alolan Graveler
 
 
 1
-Alolan Geodude, 
+Alolan Geodude,
 true

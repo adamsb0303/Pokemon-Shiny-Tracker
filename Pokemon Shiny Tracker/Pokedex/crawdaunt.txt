@@ -2,3 +2,7 @@ Crawdaunt
 0
 3
 
+
+1
+Corphish,
+true

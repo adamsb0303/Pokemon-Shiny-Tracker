@@ -2,3 +2,7 @@ Camerupt
 0
 3
 
+
+1
+Numel,
+true

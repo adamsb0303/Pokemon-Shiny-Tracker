@@ -2,3 +2,7 @@ Lycanroc
 0
 7
 
+
+1
+Rockruff,
+true

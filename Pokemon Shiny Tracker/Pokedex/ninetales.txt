@@ -2,3 +2,7 @@ Ninetales
 0
 1
 
+
+1
+Vulpix,
+true

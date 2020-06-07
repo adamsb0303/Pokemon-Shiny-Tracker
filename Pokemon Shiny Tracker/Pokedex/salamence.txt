@@ -2,3 +2,7 @@ Salamence
 0
 3
 
+
+2
+Bagon,Shelgon,
+true

@@ -2,3 +2,7 @@ Victreebel
 0
 1
 
+
+2
+Bellsprout,Weepinbell,
+true

@@ -4,5 +4,5 @@ Alolan Persian
 
 
 1
-Alolan Meowth, 
+Alolan Meowth,
 true

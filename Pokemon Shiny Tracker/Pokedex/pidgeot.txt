@@ -2,3 +2,7 @@ Pidgeot
 0
 1
 
+
+2
+Pidgy,Pidgeotto,
+true

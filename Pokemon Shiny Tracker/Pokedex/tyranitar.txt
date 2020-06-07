@@ -2,3 +2,7 @@ Tyranitar
 0
 2
 
+
+2
+Larvitar,Pupitar,
+true

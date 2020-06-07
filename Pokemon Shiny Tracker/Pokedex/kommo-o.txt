@@ -2,3 +2,7 @@ Kommo-o
 0
 7
 
+
+2
+Jangmo-o,Hakamo-o,
+true

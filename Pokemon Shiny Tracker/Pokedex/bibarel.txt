@@ -2,3 +2,7 @@ Bibarel
 0
 4
 
+
+1
+Bidoof,
+true

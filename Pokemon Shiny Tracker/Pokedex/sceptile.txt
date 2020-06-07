@@ -2,3 +2,7 @@ Sceptile
 0
 3
 
+
+2
+Treecko,Grovyle,
+true

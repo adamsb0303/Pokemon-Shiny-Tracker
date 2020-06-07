@@ -2,3 +2,7 @@ Clefable
 0
 1
 
+
+2
+Cleffa,Clefairy,
+true

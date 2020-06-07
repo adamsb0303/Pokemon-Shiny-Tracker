@@ -2,3 +2,7 @@ Ferrothorn
 0
 5
 
+
+1
+Ferroseed,
+true

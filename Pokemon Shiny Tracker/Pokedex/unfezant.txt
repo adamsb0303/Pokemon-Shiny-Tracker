@@ -2,3 +2,7 @@ Unfezant
 0
 5
 
+
+2
+Pidove,Tranquill,
+true

@@ -2,3 +2,7 @@ Bellossom
 0
 2
 
+
+2
+Oddish,Gloom,
+true

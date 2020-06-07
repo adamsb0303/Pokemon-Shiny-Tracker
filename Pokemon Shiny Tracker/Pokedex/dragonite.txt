@@ -2,3 +2,7 @@ Dragonite
 0
 1
 
+
+2
+Dratini,Dragonair,
+true

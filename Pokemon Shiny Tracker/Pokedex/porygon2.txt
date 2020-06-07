@@ -2,3 +2,7 @@ Porygon2
 0
 2
 
+
+1
+Porygon,
+true

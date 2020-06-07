@@ -2,3 +2,7 @@ Blissey
 0
 2
 
+
+2
+Happiny,Chansey,
+true

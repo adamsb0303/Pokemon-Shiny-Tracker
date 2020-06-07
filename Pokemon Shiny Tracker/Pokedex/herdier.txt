@@ -2,3 +2,7 @@ Herdier
 0
 5
 
+
+1
+Lillipup,
+true

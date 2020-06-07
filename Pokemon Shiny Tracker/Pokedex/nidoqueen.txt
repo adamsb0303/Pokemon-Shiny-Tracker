@@ -2,3 +2,7 @@ Nidoqueen
 0
 1
 
+
+2
+NidoranF,Nidorina,
+false

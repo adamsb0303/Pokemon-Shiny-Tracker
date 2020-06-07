@@ -2,3 +2,7 @@ Weezing
 0
 1
 
+
+1
+Koffing,
+true

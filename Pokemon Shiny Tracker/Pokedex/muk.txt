@@ -2,3 +2,7 @@ Muk
 0
 1
 
+
+1
+Grimer,
+true

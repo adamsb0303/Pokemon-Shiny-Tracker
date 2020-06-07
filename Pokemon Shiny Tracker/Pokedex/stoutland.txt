@@ -2,3 +2,7 @@ Stoutland
 0
 5
 
+
+2
+Lillipup,Herdier,
+true

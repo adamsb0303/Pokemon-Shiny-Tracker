@@ -2,3 +2,7 @@ Amoonguss
 0
 5
 
+
+1
+Foongus,
+true

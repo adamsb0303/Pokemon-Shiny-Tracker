@@ -2,3 +2,7 @@ Obstagoon
 0
 8
 
+
+2
+Galarian Zigzagoon,Galarian Linoone,
+true

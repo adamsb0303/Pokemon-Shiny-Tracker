@@ -2,3 +2,7 @@ Pyroar
 0
 6
 
+
+1
+Litleo,
+true

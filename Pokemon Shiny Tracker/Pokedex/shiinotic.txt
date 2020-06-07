@@ -2,3 +2,7 @@ Shiinotic
 0
 7
 
+
+1
+Morelull,
+true

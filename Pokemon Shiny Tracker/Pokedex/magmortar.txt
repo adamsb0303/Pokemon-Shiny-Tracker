@@ -2,3 +2,7 @@ Magmortar
 0
 4
 
+
+2
+Magby,Magmar,
+true

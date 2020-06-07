@@ -2,3 +2,7 @@ Heliolisk
 0
 6
 
+
+1
+Helioptile,
+true

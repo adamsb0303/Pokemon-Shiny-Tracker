@@ -2,3 +2,7 @@ Aegislash
 0
 6
 
+
+2
+Honedge,Doublade,
+true

@@ -4,5 +4,5 @@ Alolan Muk
 
 
 1
-Alolan Grimer, 
+Alolan Grimer,
 true

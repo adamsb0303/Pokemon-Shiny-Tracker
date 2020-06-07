@@ -2,3 +2,7 @@ Torterra
 0
 4
 
+
+2
+Turtwig,Grotle,
+true

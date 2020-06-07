@@ -2,3 +2,7 @@ Walrein
 0
 3
 
+
+2
+Spheal,Sealeo,
+true

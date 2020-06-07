@@ -2,3 +2,7 @@ Hydreigon
 0
 5
 
+
+2
+Deino,Zweilous,
+true

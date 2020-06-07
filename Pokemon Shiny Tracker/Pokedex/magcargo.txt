@@ -2,3 +2,7 @@ Magcargo
 0
 2
 
+
+1
+Slugma,
+true

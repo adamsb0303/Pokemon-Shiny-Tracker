@@ -16,12 +16,10 @@ Method::Method() {
 
 //Prints the methods from the array that was taken from the game that is being used
 void Method::printMethods(std::string methods[5], std::string pokemonName) {
+    std::cout << pokemonName << ":\n";
     if (methods[0] == " ") {
         std::cout << "This pokemon cannot be found shiny in the game that you selected.";
-        char pause = getchar();
-        exit(0);
     }
-    std::cout << pokemonName << ":\n";
 	for (int i = 0; i < 5; i++) {
         if (!methods[i].compare(" ") == 0) {
             std::cout << i + 1 << ". " << methods[i] << "\n";

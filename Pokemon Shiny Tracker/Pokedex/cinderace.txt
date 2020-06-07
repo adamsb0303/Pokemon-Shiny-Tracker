@@ -2,3 +2,7 @@ Cinderace
 0
 8
 
+
+2
+Scorbunny,Raboot,
+true

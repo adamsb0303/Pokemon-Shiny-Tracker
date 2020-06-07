@@ -2,3 +2,7 @@ Gengar
 0
 1
 
+
+2
+Gastly,Haunter,
+true

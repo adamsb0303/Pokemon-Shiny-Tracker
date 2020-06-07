@@ -2,3 +2,7 @@ Orbeetle
 0
 8
 
+
+2
+Blipbug,Dottler,
+true

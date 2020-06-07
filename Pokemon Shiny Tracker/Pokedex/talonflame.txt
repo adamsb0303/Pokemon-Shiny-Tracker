@@ -2,3 +2,7 @@ Talonflame
 0
 6
 
+
+2
+Fletchling,Fletchinder,
+true

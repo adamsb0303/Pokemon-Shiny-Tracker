@@ -2,3 +2,7 @@ Gorebyss
 0
 3
 
+
+1
+Clamperl,
+true

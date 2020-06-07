@@ -2,3 +2,7 @@ Weavile
 0
 4
 
+
+1
+Sneasel,
+true

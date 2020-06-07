@@ -2,3 +2,7 @@ Quilladin
 0
 6
 
+
+1
+Chespin,
+true

@@ -2,3 +2,7 @@ Staraptor
 0
 4
 
+
+2
+Starly,Staravia,
+true

@@ -2,3 +2,7 @@ Hatterene
 0
 8
 
+
+2
+Hatenna,Hattrem,
+true

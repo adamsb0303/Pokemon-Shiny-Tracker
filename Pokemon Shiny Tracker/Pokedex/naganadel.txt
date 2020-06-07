@@ -2,3 +2,7 @@ Naganadel
 0
 7
 
+
+1
+Poipole,
+false

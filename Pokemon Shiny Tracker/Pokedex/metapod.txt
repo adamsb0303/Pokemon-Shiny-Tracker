@@ -2,3 +2,7 @@ Metapod
 0
 1
 
+
+1
+Caterpie,
+true

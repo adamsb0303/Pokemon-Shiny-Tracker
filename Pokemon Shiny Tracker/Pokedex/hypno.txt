@@ -2,3 +2,7 @@ Hypno
 0
 1
 
+
+1
+Drowzee,
+true

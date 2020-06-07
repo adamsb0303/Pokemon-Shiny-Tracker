@@ -2,3 +2,7 @@ Whimsicott
 0
 5
 
+
+1
+Cottonee,
+true

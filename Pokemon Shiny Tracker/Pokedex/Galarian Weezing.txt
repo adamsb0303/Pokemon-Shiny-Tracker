@@ -4,5 +4,5 @@ Galarian Weezing
 
 
 1
-Koffing, 
+Koffing,
 true

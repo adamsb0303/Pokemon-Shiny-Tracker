@@ -2,3 +2,7 @@ Manectric
 0
 3
 
+
+1
+Electrike,
+true

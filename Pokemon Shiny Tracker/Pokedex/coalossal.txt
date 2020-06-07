@@ -2,3 +2,7 @@ Coalossal
 0
 8
 
+
+2
+Rolycoly,Carkol,
+true

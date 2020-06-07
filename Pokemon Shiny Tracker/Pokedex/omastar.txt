@@ -2,3 +2,7 @@ Omastar
 0
 1
 
+
+1
+Omanyte,
+true

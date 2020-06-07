@@ -2,3 +2,7 @@ Mr Rime
 0
 8
 
+
+2
+Mime Jr,Galarian Mr Mime,
+true

@@ -2,3 +2,7 @@ Cursola
 0
 8
 
+
+1
+Galarian Corsola,
+true

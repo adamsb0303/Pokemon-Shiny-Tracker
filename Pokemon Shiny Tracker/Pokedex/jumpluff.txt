@@ -2,3 +2,7 @@ Jumpluff
 0
 2
 
+
+2
+Hoppip,Skiploom,
+true

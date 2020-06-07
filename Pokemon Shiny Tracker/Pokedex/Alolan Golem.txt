@@ -4,5 +4,5 @@ Alolan Golem
 
 
 2
-Alolan Geodude, Alolan Graveler, 
+Alolan Geodude,Alolan Graveler,
 true

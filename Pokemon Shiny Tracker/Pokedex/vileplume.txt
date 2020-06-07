@@ -2,3 +2,7 @@ Vileplume
 0
 1
 
+
+2
+Oddish,Gloom,
+true

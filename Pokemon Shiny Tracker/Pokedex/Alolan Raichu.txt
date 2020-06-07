@@ -4,5 +4,5 @@ Alolan Raichu
 
 
 2
-Paichu, Pikachu, 
+Paichu,Pikachu,
 true

@@ -2,3 +2,7 @@ Incineroar
 0
 7
 
+
+2
+Litten,Torracat,
+true

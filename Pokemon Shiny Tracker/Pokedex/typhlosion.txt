@@ -2,3 +2,7 @@ Typhlosion
 0
 2
 
+
+2
+Cyndaquil,Quilava,
+true

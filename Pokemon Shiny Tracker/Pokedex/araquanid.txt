@@ -2,3 +2,7 @@ Araquanid
 0
 7
 
+
+1
+Dewpider,
+true

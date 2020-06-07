@@ -2,3 +2,7 @@ Raichu
 0
 1
 
+
+2
+Pichu,Pikachu,
+true

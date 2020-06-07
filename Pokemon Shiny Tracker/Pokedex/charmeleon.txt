@@ -2,3 +2,7 @@ Charmeleon
 0
 1
 
+
+1
+Charmander,
+true

@@ -2,3 +2,7 @@ Nidoking
 0
 1
 
+
+2
+NidoranM,Nidorino,
+true

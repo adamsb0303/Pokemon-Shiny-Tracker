@@ -2,3 +2,7 @@ Snorlax
 0
 1
 
+
+1
+Munchlax,
+true

@@ -2,3 +2,7 @@ Swampert
 0
 3
 
+
+2
+Mudkip,Marshtomp,
+true

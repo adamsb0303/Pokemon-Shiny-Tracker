@@ -2,3 +2,7 @@ Tangrowth
 0
 4
 
+
+1
+Tangela,
+true

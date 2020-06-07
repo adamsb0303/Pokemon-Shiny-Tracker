@@ -2,3 +2,7 @@ Nidorina
 0
 1
 
+
+0
+NidoranF,
+false

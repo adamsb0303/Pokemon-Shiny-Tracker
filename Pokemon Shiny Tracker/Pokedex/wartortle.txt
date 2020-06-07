@@ -2,3 +2,7 @@ Wartortle
 0
 1
 
+
+1
+Squirtle,
+true

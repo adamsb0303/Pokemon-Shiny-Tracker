@@ -2,3 +2,7 @@ Carracosta
 0
 5
 
+
+1
+Tirtouga,
+true

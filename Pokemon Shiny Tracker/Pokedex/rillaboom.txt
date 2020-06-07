@@ -2,3 +2,7 @@ Rillaboom
 0
 8
 
+
+2
+Grookey,Thwackey,
+true

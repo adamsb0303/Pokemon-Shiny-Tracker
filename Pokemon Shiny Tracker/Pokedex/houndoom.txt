@@ -2,3 +2,7 @@ Houndoom
 0
 2
 
+
+1
+Houndour,
+true

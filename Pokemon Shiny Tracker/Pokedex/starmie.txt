@@ -2,3 +2,7 @@ Starmie
 0
 1
 
+
+1
+Staryu,
+true

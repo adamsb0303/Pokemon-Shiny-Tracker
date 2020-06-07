@@ -2,3 +2,7 @@ Floette
 0
 6
 
+
+1
+Flabebe,
+true

@@ -2,3 +2,7 @@ Decidueye
 0
 7
 
+
+2
+Rowlet,Datrix,
+true

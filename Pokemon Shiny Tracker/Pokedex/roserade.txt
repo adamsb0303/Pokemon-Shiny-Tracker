@@ -2,3 +2,7 @@ Roserade
 0
 4
 
+
+2
+Budew,Roselia,
+true

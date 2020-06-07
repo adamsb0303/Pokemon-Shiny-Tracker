@@ -2,3 +2,7 @@ Kabutops
 0
 1
 
+
+1
+Kabuto,
+true

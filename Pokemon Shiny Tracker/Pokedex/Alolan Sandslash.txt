@@ -4,5 +4,5 @@ Alolan Sandslash
 
 
 1
-Alolan Sandshrew
+Alolan Sandshrew,
 true

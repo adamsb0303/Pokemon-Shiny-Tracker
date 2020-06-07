@@ -2,3 +2,7 @@ Milotic
 0
 3
 
+
+1
+Feebas,
+true

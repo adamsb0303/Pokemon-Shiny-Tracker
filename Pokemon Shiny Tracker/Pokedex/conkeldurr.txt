@@ -2,3 +2,7 @@ Conkeldurr
 0
 5
 
+
+2
+Timburr,Gurdurr,
+true

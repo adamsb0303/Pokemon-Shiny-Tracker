@@ -2,3 +2,7 @@ Emboar
 0
 5
 
+
+2
+Tepig,Pignite,
+true

@@ -2,3 +2,7 @@ Gardevoir
 0
 3
 
+
+2
+Ralts,Kirlia,
+true

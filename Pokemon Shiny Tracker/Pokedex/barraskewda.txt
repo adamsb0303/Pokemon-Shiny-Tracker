@@ -2,3 +2,7 @@ Barraskewda
 0
 8
 
+
+1
+Arrokuda,
+true

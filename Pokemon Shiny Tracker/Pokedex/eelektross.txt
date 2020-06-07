@@ -2,3 +2,7 @@ Eelektross
 0
 5
 
+
+2
+Tynamo,Eelektrik,
+true

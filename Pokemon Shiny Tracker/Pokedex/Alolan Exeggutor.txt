@@ -4,5 +4,5 @@ Alolan Exeggutor
 
 
 1
-Exeggcute, 
+Exeggcute,
 true

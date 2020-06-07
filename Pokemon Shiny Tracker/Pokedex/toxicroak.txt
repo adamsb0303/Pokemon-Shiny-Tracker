@@ -2,3 +2,7 @@ Toxicroak
 0
 4
 
+
+1
+Croagunk,
+true

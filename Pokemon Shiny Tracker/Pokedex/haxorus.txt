@@ -2,3 +2,7 @@ Haxorus
 0
 5
 
+
+2
+Axew,Fraxure,
+true

@@ -71,7 +71,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
                 break;
             case 6:
                 for (int i = 0; i < 4; i++)
-                    family[i] = splitString(temp, i + 1, ', ');
+                    family[i] = splitString(temp, i + 1, ',');
                 break;
             case 7:
                 breedable = temp.compare("true") == 0;

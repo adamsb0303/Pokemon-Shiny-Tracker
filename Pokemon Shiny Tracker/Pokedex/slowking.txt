@@ -2,3 +2,7 @@ Slowking
 0
 2
 
+
+1
+Slowpoke,
+true

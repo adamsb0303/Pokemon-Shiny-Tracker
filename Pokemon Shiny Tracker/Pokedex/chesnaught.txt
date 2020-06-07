@@ -2,3 +2,7 @@ Chesnaught
 0
 6
 
+
+2
+Chepsin,Quilladin,
+true

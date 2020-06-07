@@ -2,3 +2,7 @@ Vikavolt
 0
 7
 
+
+2
+Grubbin,Charjabug,
+true

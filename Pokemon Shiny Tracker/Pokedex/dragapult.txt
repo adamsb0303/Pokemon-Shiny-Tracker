@@ -2,3 +2,7 @@ Dragapult
 0
 8
 
+
+2
+Dreepy,Drakloak,
+true

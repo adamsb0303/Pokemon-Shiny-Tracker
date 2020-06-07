@@ -2,3 +2,7 @@ Eldegoss
 0
 8
 
+
+1
+Gossifleur,
+true

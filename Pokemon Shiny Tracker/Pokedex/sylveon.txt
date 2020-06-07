@@ -2,3 +2,7 @@ Sylveon
 0
 6
 
+
+1
+Eevee,
+true

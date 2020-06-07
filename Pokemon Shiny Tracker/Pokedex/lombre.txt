@@ -2,3 +2,7 @@ Lombre
 0
 3
 
+
+1
+Lotad,
+true

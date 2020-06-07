@@ -4,5 +4,5 @@ Alolan Marowak
 
 
 1
-Cubone, 
+Cubone,
 true

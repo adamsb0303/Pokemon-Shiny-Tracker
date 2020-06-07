@@ -2,3 +2,7 @@ Mismagius
 0
 4
 
+
+1
+Misdreavus,
+true

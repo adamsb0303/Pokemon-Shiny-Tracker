@@ -2,3 +2,7 @@ Bastiodon
 0
 4
 
+
+1
+Shieldon,
+true

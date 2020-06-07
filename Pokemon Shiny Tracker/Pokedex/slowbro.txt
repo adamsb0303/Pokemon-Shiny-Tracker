@@ -2,3 +2,7 @@ Slowbro
 0
 1
 
+
+1
+Slowpoke,
+true

@@ -2,3 +2,7 @@ Bayleef
 0
 2
 
+
+1
+Chikorita,
+true

@@ -2,3 +2,7 @@ Butterfree
 0
 1
 
+
+2
+Caterpie,Metapod,
+true

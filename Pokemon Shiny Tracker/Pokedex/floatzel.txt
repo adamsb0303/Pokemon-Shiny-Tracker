@@ -2,3 +2,7 @@ Floatzel
 0
 4
 
+
+1
+Buizel,
+true

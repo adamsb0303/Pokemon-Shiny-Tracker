@@ -2,3 +2,7 @@ Excadrill
 0
 5
 
+
+1
+Drilbur,
+true

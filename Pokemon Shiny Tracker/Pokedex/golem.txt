@@ -2,3 +2,7 @@ Golem
 0
 1
 
+
+2
+Geodude,Graveler,
+true

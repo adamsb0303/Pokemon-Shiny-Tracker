@@ -2,3 +2,7 @@ Togekiss
 0
 4
 
+
+2
+Togepi,Togetic,
+true

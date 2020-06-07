@@ -2,3 +2,7 @@ Ivysaur
 0
 1
 
+
+1
+Bulbasaur,
+true

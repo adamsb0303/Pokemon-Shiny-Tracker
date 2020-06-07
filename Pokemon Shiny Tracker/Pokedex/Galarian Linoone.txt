@@ -4,5 +4,5 @@ Galarian Linoone
 
 
 1
-Galarian Zigzagoon, 
+Galarian Zigzagoon,
 true

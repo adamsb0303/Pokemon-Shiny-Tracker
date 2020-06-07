@@ -2,3 +2,7 @@ Ambipom
 0
 4
 
+
+1
+Aipom,
+true

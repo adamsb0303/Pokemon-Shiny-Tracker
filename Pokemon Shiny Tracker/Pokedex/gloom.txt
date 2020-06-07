@@ -2,3 +2,7 @@ Gloom
 0
 1
 
+
+1
+Oddish,
+true

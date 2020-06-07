@@ -2,3 +2,7 @@ Whirlipede
 0
 5
 
+
+1
+Venipede,
+true

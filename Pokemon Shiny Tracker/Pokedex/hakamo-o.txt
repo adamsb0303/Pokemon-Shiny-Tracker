@@ -2,3 +2,7 @@ Hakamo-o
 0
 7
 
+
+1
+Jangmo-o,
+true

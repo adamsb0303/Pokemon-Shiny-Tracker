@@ -2,3 +2,7 @@ Magneton
 0
 1
 
+
+1
+Magnemite,
+true

@@ -2,3 +2,7 @@ Meowstic
 0
 6
 
+
+1
+Espurr,
+true

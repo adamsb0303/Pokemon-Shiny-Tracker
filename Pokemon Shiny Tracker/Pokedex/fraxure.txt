@@ -2,3 +2,7 @@ Fraxure
 0
 5
 
+
+1
+Axew,
+true

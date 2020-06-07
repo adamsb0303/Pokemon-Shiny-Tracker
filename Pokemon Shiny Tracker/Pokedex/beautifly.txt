@@ -2,3 +2,7 @@ Beautifly
 0
 3
 
+
+2
+Wurmple,Silcoon,
+true

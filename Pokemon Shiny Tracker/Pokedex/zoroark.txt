@@ -2,3 +2,7 @@ Zoroark
 0
 5
 
+
+1
+Zorua,
+true

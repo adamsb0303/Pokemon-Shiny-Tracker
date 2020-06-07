@@ -4,5 +4,5 @@ Galarian Rapidash
 
 
 1
-Galarian Ponyta, 
+Galarian Ponyta,
 true

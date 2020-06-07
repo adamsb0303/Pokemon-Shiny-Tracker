@@ -2,3 +2,7 @@ Slurpuff
 0
 6
 
+
+1
+Swirlix,
+true
