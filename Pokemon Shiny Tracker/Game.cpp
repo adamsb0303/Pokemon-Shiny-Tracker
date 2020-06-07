@@ -356,6 +356,8 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 					if (selectedPokemon.wild)
 						methods[1] = "Catch Combo";
 				}
+				else
+					numMethods = 1;
 			}
 			break;
 		case 8:
