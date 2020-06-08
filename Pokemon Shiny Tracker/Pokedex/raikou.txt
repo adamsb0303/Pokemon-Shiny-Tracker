@@ -1,8 +1,9 @@
 Raikou
-0
+19
 2
-
-
+Ultra Sun
+None
 0
 
 false
+true

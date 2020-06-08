@@ -136,10 +136,7 @@ void Pokemon::savePokemonData(std::string game, std::string method, bool shinyCh
     Data << name + "\n";
     Data << encounters << "\n";
     Data << generation << "\n";
-    Data << game;
-    if (shinyCharm)
-        Data << "S";
-    Data << "\n";
+    Data << game << "\n";
     Data << method << "\n";
     Data << evolutionStage << "\n";
     for (int i = 0; sizeof(family) / sizeof(family[0]); i++)
@@ -152,9 +149,9 @@ void Pokemon::savePokemonData(std::string game, std::string method, bool shinyCh
     else
         Data << "\nfalse\n";
     if (shinyCharm)
-        Data << "\ntrue\n";
+        Data << "true\n";
     else
-        Data << "\nfalse\n";
+        Data << "false\n";
     Data.close();
 }
 
