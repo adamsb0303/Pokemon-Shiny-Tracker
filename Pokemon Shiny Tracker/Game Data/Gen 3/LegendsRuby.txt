@@ -5,3 +5,4 @@ Latias
 Latios
 Groudon
 Rayquaza
+Jirachi

@@ -5,3 +5,4 @@ Latias
 Latios
 Kyogre
 Rayquaza
+Jirachi

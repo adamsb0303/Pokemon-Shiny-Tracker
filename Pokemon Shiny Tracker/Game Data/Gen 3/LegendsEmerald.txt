@@ -8,3 +8,6 @@ Latios
 Kyogre
 Groudon
 Rayquaza
+Mew
+Jirachi
+Deoxys

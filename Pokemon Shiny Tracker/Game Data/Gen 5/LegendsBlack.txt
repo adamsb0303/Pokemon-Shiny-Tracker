@@ -5,3 +5,4 @@ Tornadus
 Reshiram
 Landorus
 Kyurem
+Victini

@@ -6,3 +6,6 @@ Heatran
 Regigigas
 Giratina
 Cresselia
+Darkrai
+Shaymin
+Arceus

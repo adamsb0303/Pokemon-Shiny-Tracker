@@ -2,3 +2,4 @@ Raikou
 Entei
 Suicune
 Lugia
+Celebi

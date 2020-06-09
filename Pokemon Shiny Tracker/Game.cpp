@@ -54,6 +54,7 @@ void Game::printGames(int pokemonGeneration, std::string selectedPokemon) {
 void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 	std::cout << "Games by Generation:\n";
 	std::string avaliableGames[6];
+	int generationsAvaliable = 0;
 	for (int i = pokemonGeneration - 1; i < 8; i++) {
 		if (!i == 0) {
 			int index = 0;
@@ -66,6 +67,7 @@ void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 			int k = 0;
 			if (avaliableGames[0].compare("") != 0) {
 				std::cout << i + 1 << ". ";
+				generationsAvaliable++;
 			}
 			while (avaliableGames[k + 1].compare("") != 0) {
 				std::cout << avaliableGames[k] << ", ";
@@ -77,6 +79,11 @@ void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 			for (int l = 0; l < 6; l++)
 				avaliableGames[l] = "";
 		}
+	}
+	if (generationsAvaliable == 0) {
+		std::cout << "\nThis pokemon can't be shiny hunted through normal means.";
+		char pause = getchar();
+		exit(1);
 	}
 }
 
@@ -115,7 +122,6 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 	std::ifstream gamePokedex(filePath.c_str());
 	std::string pokemon;
 	selectedPokemon.special = false;
-	selectedPokemon.special = findMythicals(selectedPokemon.name);
 	if(findLegendaries(selectedPokemon.name))
 		selectedPokemon.special = avaliableLegendary(selectedPokemon.name, name, generation);
 	selectedPokemon.fish = findFish(selectedPokemon.name);
@@ -128,20 +134,6 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 		}
 	}
 	gamePokedex.close();
-}
-
-//Returns true if pokemon is a mythical/event Pokmeon
-bool Game::findMythicals(std:: string selectedPokemon) {
-	std::string mythics;
-	std::ifstream Mythicals("Game Data/Mythicals.txt");
-	while (getline(Mythicals, mythics)) {
-		if (selectedPokemon.compare(mythics) == 0) {
-			return true;
-			break;
-		}
-	}
-	Mythicals.close();
-	return false;
 }
 
 //Searches files based on the game that was selected and checks

@@ -6,3 +6,4 @@ Raikou
 Entei
 Suicune
 Lugia
+Deoxys

@@ -24,8 +24,6 @@ public:
 
 	void getLocations(Pokemon& selectedPokemon);
 
-	bool findMythicals(std::string selectedPokemon);
-
 	bool findFish(std::string selectedPokemon);
 
 	bool findLegendaries(std::string selectedPokemon);

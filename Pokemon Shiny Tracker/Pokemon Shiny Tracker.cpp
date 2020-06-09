@@ -54,7 +54,7 @@ int main() {
         do {
             system("CLS");
             userGame = "";
-            if (currentGame.findLegendaries(selectedPokemon.name) || currentGame.findMythicals(selectedPokemon.name)) { //checks if pokemon is mythical or legendary and limits
+            if (currentGame.findLegendaries(selectedPokemon.name)) { //checks if pokemon is mythical or legendary and limits
                 currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);                     //the games that are printed to the ones that they are
             }                                                                                                           //available in
             else
