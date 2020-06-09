@@ -12,7 +12,7 @@ int main() {
     char pause = ' ';
     do {
         //prompt user for the name of the pokemon that they are hunting
-        system("CLS");
+        std::cout << std::string(100, '\n');
         std::string pokemonName;
         std::cout << "Please enter the Pokemon that you would like to hunt or enter 'list' to see all previously caught shiny pokemon.\n";
         getline(std::cin, pokemonName);
@@ -52,7 +52,7 @@ int main() {
     //if the user has never hunted this pokemon before, it asks for game and method
     if (selectedPokemon.encounters == -1) {
         do {
-            system("CLS");
+            std::cout << std::string(100, '\n');
             userGame = "";
             if (currentGame.findLegendaries(selectedPokemon.name)) { //checks if pokemon is mythical or legendary and limits
                 currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);                     //the games that are printed to the ones that they are
@@ -93,7 +93,7 @@ int main() {
         std::string userMethod;
         do {
             numMethod = 0;
-            system("CLS");
+            std::cout << std::string(100, '\n');
             currentMethod.printMethods(currentGame.methods, selectedPokemon.name);//prints methods of the selected pokemon and the previous evolutions
             if (selectedPokemon.evolutionStage == 2) {
                 currentMethod.printMethods(Gameevolution1.methods, Pokemonevolution1.name);
@@ -110,7 +110,7 @@ int main() {
         } while (numMethod > currentGame.numMethods);
         if (currentGame.generation > 5 || currentGame.name.compare("Black 2") || currentGame.name.compare("White 2")) {//shiny charm isn't avaliable until Black 2 and White 2
             while (pause != 'y' && pause != 'n') {
-                system("CLS");
+                std::cout << std::string(100, '\n');
                 std::cout << "Do you have a Shiny Charm? y/n\n";
                 pause = getchar();
             }

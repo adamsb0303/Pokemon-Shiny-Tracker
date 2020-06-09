@@ -97,7 +97,7 @@ void Method::shinyHunt(Pokemon pokemon, std::string currentGame) {
     for (;;) {
         if (userInput != '1' && userInput != '2') {
             userInput = ' ';
-            system("CLS");
+            std::cout << std::string(100, '\n');
             if (name.compare("None") == 0)
                 std::cout << "Currently no method being used.\n\n";
             else
