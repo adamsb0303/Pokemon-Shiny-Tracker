@@ -108,7 +108,7 @@ int main() {
                 pause = getchar();
             }
         } while (numMethod > currentGame.numMethods);
-        if (currentGame.generation >= 5) {//shiny charm isn't avaliable until generation 5
+        if (currentGame.generation > 5 || currentGame.name.compare("Black 2") || currentGame.name.compare("White 2")) {//shiny charm isn't avaliable until Black 2 and White 2
             while (pause != 'y' && pause != 'n') {
                 system("CLS");
                 std::cout << "Do you have a Shiny Charm? y/n\n";
