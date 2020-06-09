@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "Pokemon.h"
 
+//Array of all Pokemon Games
 const std::string Games[8][6] = { {"Red", "Green", "Blue", "Yellow", " ", " "},
 								{"Gold", "Silver", "Crystal", " ", " ", " "},
 								{"Ruby", "Sapphire", "FireRed", "LeafGreen", "Emerald", " "},
@@ -13,6 +14,7 @@ const std::string Games[8][6] = { {"Red", "Green", "Blue", "Yellow", " ", " "},
 								{"Sun", "Moon", "Ultra Sun", "Ultra Moon", "Lets Go Pikachu", "Lets Go Eevee"},
 								{"Sword", "Shield", " ", " ", " ", " "} };
 
+//Initialize variables for Game
 Game::Game() {
 	name = "";
 	generation = 0;
@@ -21,6 +23,8 @@ Game::Game() {
 	pokemonIsPresent = true;
 }
 
+//Prints all games
+//doesn't print lets go or swsh games if they aren't avaliable
 void Game::printGames(int pokemonGeneration, std::string selectedPokemon) {
 	std::cout << "Games by Generation:\n";
 	for (int i = pokemonGeneration - 1; i < 8; i++) {
@@ -46,6 +50,7 @@ void Game::printGames(int pokemonGeneration, std::string selectedPokemon) {
 	}
 }
 
+//if the pokemon is a legendary it only prints the games that it is caught in
 void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 	std::cout << "Games by Generation:\n";
 	std::string avaliableGames[6];
@@ -75,6 +80,8 @@ void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 	}
 }
 
+//searches through Game array for name that matches the game that the user entered
+//notifies user if the games isn't recognized
 void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 	bool created = false;
 	for (int i = 0; i < 8 && !created; i++) {
@@ -100,6 +107,9 @@ void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 	}
 }
 
+
+//In the cases of fish and legendary's the way that they are found change based on what game is selected
+//for example, X has fish that Y doesn't and some most legendarys can't be found in all pokemon games
 void Game::getLocations(Pokemon& selectedPokemon) {
 	std::string filePath = "Game Data/Gen " + std::to_string(generation) + "/" + name + ".txt";
 	std::ifstream gamePokedex(filePath.c_str());
@@ -120,6 +130,7 @@ void Game::getLocations(Pokemon& selectedPokemon) {
 	gamePokedex.close();
 }
 
+//Returns true if pokemon is a mythical/event Pokmeon
 bool Game::findMythicals(std:: string selectedPokemon) {
 	std::string mythics;
 	std::ifstream Mythicals("Game Data/Mythicals.txt");
@@ -133,6 +144,9 @@ bool Game::findMythicals(std:: string selectedPokemon) {
 	return false;
 }
 
+//Searches files based on the game that was selected and checks
+//if the pokemon can be fished in only the generation 6 games
+//because the only fish hunting methods are only found in gen 6
 bool Game::findFish(std::string selectedPokemon) {
 	std::string filePath;
 	if (name.compare("X") == 0 || name.compare("Y") == 0)
@@ -151,6 +165,7 @@ bool Game::findFish(std::string selectedPokemon) {
 	return false;
 }
 
+//Returns true if the pokemon is a legendary
 bool Game::findLegendaries(std::string selectedPokemon) {
 	std::string legendaries;
 	std::ifstream legends("Game Data/Legendaries.txt");
@@ -163,6 +178,7 @@ bool Game::findLegendaries(std::string selectedPokemon) {
 	return false;
 }
 
+//removes special tag if the legendary is avaliable in the game that is selected
 bool Game::avaliableLegendary(std::string pokemonName, std::string gameName, int generation) {
 	std:: string legendaries = "";
 	std::string filePath = "Game Data/Gen " + std::to_string(generation) + "/Legends" + gameName + ".txt";
@@ -177,6 +193,7 @@ bool Game::avaliableLegendary(std::string pokemonName, std::string gameName, int
 	return true;
 }
 
+//returns true if the pokemon can all for help
 bool Game::findSOS(std::string selectedPokemon) {
 	std::string sosPokemon = "";
 	std::ifstream SOS;
@@ -198,6 +215,7 @@ bool Game::findSOS(std::string selectedPokemon) {
 	return false;
 }
 
+//returns true if the pokemon can be found in the lets go games
 bool Game::avaliableLetsGo(std::string selectedPokemon) {
 	std::string pokemonName;
 	std::ifstream letsGo("Game Data/Gen 7/LetsGoPokedex.txt");
@@ -210,6 +228,7 @@ bool Game::avaliableLetsGo(std::string selectedPokemon) {
 	return false;
 }
 
+//returns true if the pokemon can be found in Sword or Shield
 bool Game::avaliableSWSH(std::string selectedPokemon) {
 	std::string pokemonName;
 	std::ifstream SWSH("Game Data/Gen 8/SWSHPokedex.txt");
@@ -222,6 +241,9 @@ bool Game::avaliableSWSH(std::string selectedPokemon) {
 	return false;
 }
 
+//based on the game generation and name, the method names are added to an array
+//adds shiny locked pokemon based on the game
+//based on tags generated above, limits methods that are added to the array
 void Game::generateMethods(int generation, std::string name, Pokemon selectedPokemon) {
 	switch (generation) {
 		case 2 :
@@ -233,7 +255,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			numMethods = 1;
 			break;
 		case 4:
-			if (name.compare("Diamond") == 0 || name.compare("Pearl") == 0 || name.compare("Platinum") == 0) {
+			if (name.compare("Diamond") == 0 || name.compare("Pearl") == 0 || name.compare("Platinum") == 0) {	//radar chaining isn't avaliable in HGSS
 				numMethods = 3;
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";
@@ -259,7 +281,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			}
 			break;
 		case 6:
-			if (name.compare("X") == 0 || name.compare("Y") == 0) {
+			if (name.compare("X") == 0 || name.compare("Y") == 0) {		//Radar isn't in ORAS and DexNav isn't in XY
 				numMethods = 5;
 				if (selectedPokemon.breedable)
 					methods[1] = "Masuda";
@@ -302,7 +324,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 			}
 			break;
 		case 7:
-			if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {
+			if (name.compare("Sun") == 0 || name.compare("Moon") == 0) {	//Worm holes aren't in SM
 				numMethods = 3;
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";
@@ -351,7 +373,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 				shinyLocked[7] = "Zygarde";
 			}
 			else {
-				if (!selectedPokemon.name.substr(0, 6).compare("Alolan") == 0) {
+				if (!selectedPokemon.name.substr(0, 6).compare("Alolan") == 0) {//Alolan Pokemon can only be traded for
 					numMethods = 2;
 					if (selectedPokemon.wild)
 						methods[1] = "Catch Combo";
@@ -377,7 +399,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 	}
 
 	for (int i = 0; i < 15; i++) {
-		if (shinyLocked[i].compare(selectedPokemon.name) == 0) {
+		if (shinyLocked[i].compare(selectedPokemon.name) == 0) {//adds special tag to pokemon that are shiny locked
 			selectedPokemon.special = true;
 			break;
 		}

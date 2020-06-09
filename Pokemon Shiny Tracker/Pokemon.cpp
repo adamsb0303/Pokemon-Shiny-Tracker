@@ -4,6 +4,7 @@
 #include "Pokemon.h"
 #include "Game.h"
 
+//initializes variables
 Pokemon::Pokemon() {
     name = "";
     generation = 0;
@@ -15,10 +16,11 @@ Pokemon::Pokemon() {
     wild = false;
     fish = false;
     sos = false;
-    special = false;
+    special = false;//means that pokemon can't be shiny
     shinyCharm = false;
 }
 
+//searches for file and pulls the data from the file with the corresponding name
 void Pokemon::generatePokemonData(std::string inputName) {
     char option;
     inputName[0] = toupper(inputName[0]);
@@ -88,6 +90,8 @@ void Pokemon::generatePokemonData(std::string inputName) {
     }
 }
 
+//checks to see if pokemon has a regional variant
+//if it does, it asks the user if they are hunting for that variant
 void Pokemon::getRegionalVariant(std::string& inputName) {
     std::string Alolan;
     char userInput;
@@ -122,6 +126,7 @@ void Pokemon::getRegionalVariant(std::string& inputName) {
     GalarPokemon.close();
 }
 
+//splits a string based on the char that is provided
 std::string Pokemon::splitString(std::string word, int wordNumber, char seperator) {
     int index = word.find(seperator);
     if (wordNumber > 1)
@@ -130,6 +135,7 @@ std::string Pokemon::splitString(std::string word, int wordNumber, char seperato
         return word.substr(0, index);
 }
 
+//rewrites the data to the file that was opened with the new encounter, game, and method vaules
 void Pokemon::savePokemonData(std::string game, std::string method, bool shinyCharm) {
     std::string filePath = "Pokedex/" + name + ".txt";
     std::ofstream Data(filePath.c_str(), std::ofstream::out | std::ofstream::trunc);
@@ -155,6 +161,7 @@ void Pokemon::savePokemonData(std::string game, std::string method, bool shinyCh
     Data.close();
 }
 
+//resets pokemon file and adds information to the ~CaughtPokemon file
 void Pokemon::pokemonCaught(std::string pokemon, std::string game, std::string method) {
     std::ofstream Data("Pokedex/~CaughtPokemon.txt");
     pokemon[0] = tolower(pokemon[0]);

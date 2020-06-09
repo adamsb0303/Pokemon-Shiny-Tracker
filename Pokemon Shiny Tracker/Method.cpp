@@ -15,6 +15,7 @@ Method::Method() {
 }
 
 //Prints the methods from the array that was taken from the game that is being used
+//if there is no method, it notifies the user
 void Method::printMethods(std::string methods[5], std::string pokemonName) {
     std::cout << pokemonName << ":\n";
     if (methods[0] == " ") {
@@ -33,7 +34,7 @@ void Method::setMethod(std::string method, Game currentGame, std::string selecte
     if (currentGame.generation >= 5)//doubles shiny chances if its a gen 5 or higher game
         base = base/2;
     if(hasCharm)
-        shinyCharm = hasCharm;//checks file for tag specifying shiny charm
+        shinyCharm = hasCharm;//adds shiny charm from pokemon object
     if (currentGame.name.substr(0, 3).compare("Let") == 0) {//checks for either of the lets go games and asks if a lure is being used
         char yn;
         std::cout << "Are you using a Lure? y/n\n";

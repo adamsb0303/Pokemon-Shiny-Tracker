@@ -11,6 +11,7 @@ int main() {
     Pokemon selectedPokemon = Pokemon();
     char pause = ' ';
     do {
+        //prompt user for the name of the pokemon that they are hunting
         system("CLS");
         std::string pokemonName;
         std::cout << "Please enter the Pokemon that you would like to hunt or enter 'list' to see all previously caught shiny pokemon.\n";
@@ -35,10 +36,11 @@ int main() {
                 exit(0);
             }
 
+            //converts input to all lower case
             for (int i = 0; i < pokemonName.length(); i++)
                 pokemonName[i] = tolower(pokemonName[i]);
             selectedPokemon.generatePokemonData(pokemonName);
-            if (selectedPokemon.name.empty())
+            if (selectedPokemon.name.empty())//if the pokemon wasn't generated, it spell checks the input and trys again
                 selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
         }
     } while (selectedPokemon.generation == 0);
@@ -46,19 +48,21 @@ int main() {
     Method currentMethod = Method();
     Game currentGame = Game();
     std::string userGame;
+
+    //if the user has never hunted this pokemon before, it asks for game and method
     if (selectedPokemon.encounters == -1) {
         do {
             system("CLS");
             userGame = "";
-            if (currentGame.findLegendaries(selectedPokemon.name)) {
-                currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);
-            }
+            if (currentGame.findLegendaries(selectedPokemon.name) || currentGame.findMythicals(selectedPokemon.name)) { //checks if pokemon is mythical or legendary and limits
+                currentGame.printGamesRestricted(selectedPokemon.generation, selectedPokemon.name);                     //the games that are printed to the ones that they are
+            }                                                                                                           //available in
             else
                 currentGame.printGames(selectedPokemon.generation, selectedPokemon.name);
             std::cout << "\nWhat game are you hunting in?\n\n";
             pause = getchar();
             getline(std::cin, userGame);
-            if (pause != '\n')
+            if (pause != '\n')//had an issue where on the second loop the first letter would be captured by 'pause'
                 userGame = pause + userGame;
             if (userGame.length() > 20) {
                 std::cout << "The game that you entered was not recognized.";
@@ -70,6 +74,7 @@ int main() {
             userGame = "";
         } while (currentGame.generation == 0);
 
+        //generates the objects and methods for the pokemon that this pokemon can evolve from.
         Pokemon Pokemonevolution0 = Pokemon();
         Game Gameevolution0 = Game();
         if (selectedPokemon.evolutionStage == 1 || selectedPokemon.evolutionStage == 2) {
@@ -89,7 +94,7 @@ int main() {
         do {
             numMethod = 0;
             system("CLS");
-            currentMethod.printMethods(currentGame.methods, selectedPokemon.name);
+            currentMethod.printMethods(currentGame.methods, selectedPokemon.name);//prints methods of the selected pokemon and the previous evolutions
             if (selectedPokemon.evolutionStage == 2) {
                 currentMethod.printMethods(Gameevolution1.methods, Pokemonevolution1.name);
             }
@@ -103,7 +108,7 @@ int main() {
                 pause = getchar();
             }
         } while (numMethod > currentGame.numMethods);
-        if (currentGame.generation >= 5) {
+        if (currentGame.generation >= 5) {//shiny charm isn't avaliable until generation 5
             while (pause != 'y' && pause != 'n') {
                 system("CLS");
                 std::cout << "Do you have a Shiny Charm? y/n\n";
@@ -122,6 +127,8 @@ int main() {
     currentMethod.shinyHunt(selectedPokemon, currentGame.name);
 }
 
+//if the user's input is within 90% accurate to an actual pokemon name it assumes that the user ment to enter that pokemon name
+//if the input is <90 and >60 it saves the name and prompts the user if the pokemon closest to what they entered was what they ment to enter
 std::string pokemonSpellCheck(std::string input) {
     std::ifstream Pokedex("Pokedex/~Pokedex.txt");
     std::string check;
