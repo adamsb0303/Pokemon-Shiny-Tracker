@@ -3,6 +3,7 @@
 #include "Method.h"
 #include "Game.h"
 #include "Pokemon.h"
+#include <math.h> //Including for pow() function
 
 //initialization
 Method::Method() {
