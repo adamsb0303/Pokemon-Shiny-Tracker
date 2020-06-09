@@ -7,31 +7,9 @@
 
 std::string pokemonSpellCheck(std::string input);
 
-void displayShinies()
-//Function that displays previously caught shinies
-{
-	std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
-	std::string listShinies = "";
-	int shinyCount = 1;
-	if(caughtShinies.is_open())
-	{
-		while(getline(caughtShinies, listShinies))
-		{
-			std::cout<<shinyCount<<". "<<listShinies<<"\n";
-			shinyCount++;
-		}
-	}
-}
+void displayShinies();
 
-void makeLower(std::string& word)
-//Turns every letter in the word to lowercase
-{
-	int wordLength = word.length();
-	for(int i = 0; i < wordLength; i++)
-	{
-		word[i] = tolower(word[i]);
-	}
-}
+void makeLower(std::string& word);
 
 int main() {
     Pokemon selectedPokemon = Pokemon();
@@ -203,5 +181,29 @@ std::string pokemonSpellCheck(std::string input) {
         std::cout << "The Pokemon that you entered was not recognized.";
         YorN = getchar();
         return " ";
+    }
+}
+
+//Function that displays previously caught shinies
+void displayShinies(){
+    std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
+    std::string listShinies = "";
+    int shinyCount = 1;
+    if (caughtShinies.is_open())
+    {
+        while (getline(caughtShinies, listShinies))
+        {
+            std::cout << shinyCount << ". " << listShinies << "\n";
+            shinyCount++;
+        }
+    }
+}
+
+//Turns every letter in the word to lowercase
+void makeLower(std::string& word){
+    int wordLength = word.length();
+    for (int i = 0; i < wordLength; i++)
+    {
+        word[i] = tolower(word[i]);
     }
 }
