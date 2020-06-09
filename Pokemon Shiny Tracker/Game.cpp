@@ -339,7 +339,7 @@ void Game::generateMethods(int generation, std::string name, Pokemon selectedPok
 				shinyLocked[13] = "Guzzlord";
 				shinyLocked[14] = "Necrozma";
 			}
-			if (name.compare("Ultra Sun") == 0 || name.compare("Ultra Moon") == 0) {
+			else if (name.compare("Ultra Sun") == 0 || name.compare("Ultra Moon") == 0) {
 				numMethods = 4;
 				if(selectedPokemon.breedable)
 					methods[1] = "Masuda";

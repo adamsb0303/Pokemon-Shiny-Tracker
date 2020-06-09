@@ -103,7 +103,7 @@ int main() {
             }
             std::cout << "\nEnter the number next to the method that you are using.\n";
             std::cin >> numMethod;
-            if (numMethod > selectedPokemon.method.length()) {
+            if (numMethod > currentGame.numMethods) {
                 std::cout << "The number that you entered exceeds the number of methods listed.";
                 pause = getchar();
             }
@@ -117,8 +117,13 @@ int main() {
             if (tolower(pause) == 'y') {
                 currentMethod.shinyCharm = true;
             }
+            if (pause == '\n');
         }
         currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.name, selectedPokemon.shinyCharm);
+        if(currentMethod.name.empty())
+            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, Pokemonevolution1.name, selectedPokemon.shinyCharm);
+        if (currentMethod.name.empty())
+            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, Pokemonevolution0.name, selectedPokemon.shinyCharm);
     }
     else {
         currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
