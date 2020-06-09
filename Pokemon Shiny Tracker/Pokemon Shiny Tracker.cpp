@@ -7,6 +7,16 @@
 
 std::string pokemonSpellCheck(std::string input);
 
+void makeLower(std::string& word)
+//Turns every letter in the word to lowercase
+{
+	int wordLength = word.length();
+	for(int i = 0; i < wordLength; i++)
+	{
+		word[i] = tolower(word[i]);
+	}
+}
+
 int main() {
     Pokemon selectedPokemon = Pokemon();
     char pause = ' ';
@@ -37,8 +47,7 @@ int main() {
             }
 
             //converts input to all lower case
-            for (int i = 0; i < pokemonName.length(); i++)
-                pokemonName[i] = tolower(pokemonName[i]);
+            makeLower(pokemonName); //Wrote a function to make more concise
             selectedPokemon.generatePokemonData(pokemonName);
             if (selectedPokemon.name.empty())//if the pokemon wasn't generated, it spell checks the input and trys again
                 selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
