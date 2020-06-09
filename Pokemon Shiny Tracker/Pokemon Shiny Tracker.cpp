@@ -7,6 +7,22 @@
 
 std::string pokemonSpellCheck(std::string input);
 
+void displayShinies()
+//Function that displays previously caught shinies
+{
+	std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
+	std::string listShinies = "";
+	int shinyCount = 1;
+	if(caughtShinies.is_open())
+	{
+		while(getline(caughtShinies, listShinies))
+		{
+			std::cout<<shinyCount<<". "<<listShinies<<"\n";
+			shinyCount++;
+		}
+	}
+}
+
 void makeLower(std::string& word)
 //Turns every letter in the word to lowercase
 {
@@ -31,15 +47,7 @@ int main() {
         else {
             //Display Previously Caught Shinies
             if (pokemonName.compare("list") == 0) {
-                std::ifstream caughtShinies("Pokedex/~CaughtPokemon.txt");
-                std::string listShinies = "";
-                int shinyCount = 1;
-                if (caughtShinies.is_open()) {
-                    while (getline(caughtShinies, listShinies)) {
-                        std::cout << shinyCount << ". " << listShinies << "\n";
-                        shinyCount++;
-                    }
-                }
+                displayShinies(); //Made more readable
                 std::cout << "Press any key to exit...";
                 pause = getchar();
                 pause = getchar();
