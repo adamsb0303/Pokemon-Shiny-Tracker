@@ -100,8 +100,6 @@ void Pokemon::getRegionalVariant(std::string& inputName) {
         if (inputName.compare(Alolan) == 0) {
             std::cout << "Are you hunting the Alolan Variant? y/n\n";
             userInput = getchar();
-            if (userInput == '/n')
-                userInput = getchar();
             if (tolower(userInput) == 'y') {
                 inputName = "Alolan " + inputName;
                 return;
@@ -116,11 +114,12 @@ void Pokemon::getRegionalVariant(std::string& inputName) {
         if (inputName.compare(Galarian) == 0) {
             std::cout << "Are you hunting the Galarian Variant? y/n\n";
             userInput = getchar();
+            if (userInput == '\n')
+                userInput = getchar();
             if (tolower(userInput) == 'y') {
                 inputName = "Galarian " + inputName;
                 return;
             }
-            userInput = getchar();
         }
     }
     GalarPokemon.close();
