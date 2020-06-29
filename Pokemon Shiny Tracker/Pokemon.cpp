@@ -23,7 +23,7 @@ Pokemon::Pokemon() {
 //searches for file and pulls the data from the file with the corresponding name
 void Pokemon::generatePokemonData(std::string inputName) {
     char option;
-    inputName[0] = toupper(inputName[0]);
+    //inputName[0] = toupper(inputName[0]);
     if (inputName.compare("Basculin") == 0) {
         std::cout << "Are you hunting Blue or Red Stripe Basculin? B/R\n";
         option = getchar();
