@@ -15,12 +15,11 @@ const std::string Games[8][6] = { {"Red", "Green", "Blue", "Yellow", " ", " "},
 								{"Sword", "Shield", " ", " ", " ", " "} };
 
 //Initialize variables for Game
-Game::Game() {
-	name = "";
-	generation = 0;
+Game::Game()
+:name(""), methods(), numMethods(0), generation(0), Methods(), shinyLocked(), pokemonIsPresent(true)
+{
 	for (int i = 0; i < 5; i++)
 		methods[i] = " ";
-	pokemonIsPresent = true;
 }
 
 //Prints all games
@@ -82,7 +81,7 @@ void Game::printGamesRestricted(int pokemonGeneration, std::string pokemonName){
 	}
 	if (generationsAvaliable == 0) {
 		std::cout << "\nThis pokemon can't be shiny hunted through normal means.";
-		char pause = getchar();
+		getchar();
 		exit(1);
 	}
 }
@@ -94,10 +93,12 @@ void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 	for (int i = 0; i < 8 && !created; i++) {
 		for (int j = 0; j < 6; j++) {
 			std::string currentGame = Games[i][j];
-			for (int k = 0; k < game.length(); k++) {
+			int length = game.length();
+			for (int k = 0; k < length; k++) {
 				game[k] = tolower(game[k]);
 			}
-			for (int k = 0; k < currentGame.length(); k++)
+			length = currentGame.length();
+			for (int k = 0; k < length; k++)
 				currentGame[k] = tolower(currentGame[k]);
 			if (currentGame.compare(game) == 0) {
 				name = Games[i][j];
@@ -107,10 +108,10 @@ void Game::setCurrentGame(std::string game, Pokemon& selectedPokemon) {
 			}
 		}
 	}
-	char pause = ' ';
+	//char pause = ' ';
 	if (generation == 0) {
 		std::cout << "The game that you entered was not recognized";
-		pause = getchar();
+		getchar();
 	}
 }
 
