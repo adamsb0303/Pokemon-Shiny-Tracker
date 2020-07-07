@@ -114,15 +114,15 @@ int main() {
             }
             if (pause == '\n');
         }
-        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.name, selectedPokemon.shinyCharm);
+        currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.shinyCharm);
         if(currentMethod.name.empty())
-            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, Pokemonevolution1.name, selectedPokemon.shinyCharm);
+            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.shinyCharm);
         if (currentMethod.name.empty())
-            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, Pokemonevolution0.name, selectedPokemon.shinyCharm);
+            currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.shinyCharm);
     }
     else {
         currentGame.setCurrentGame(selectedPokemon.game, selectedPokemon);
-        currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.name, selectedPokemon.shinyCharm);
+        currentMethod.setMethod(selectedPokemon.method, currentGame, selectedPokemon.shinyCharm);
     }
     currentMethod.shinyHunt(selectedPokemon, currentGame.name);
 }
