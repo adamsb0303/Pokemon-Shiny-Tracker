@@ -147,13 +147,13 @@ std::string pokemonSpellCheck(std::string input) {
         for (int i = 0; i < input.length() && i < Pokemon.length(); i++) {
             if (tolower(input[i]) == tolower(Pokemon[i])) {
                 same++;
-                Pokemon[i] = NULL;
+                Pokemon[i] = '\0';
             }
             else {
                 for (int j = 0; j < check.length(); j++) {
                     if (tolower(input[i]) == tolower(Pokemon[j])) {
                         same++;
-                        Pokemon[i] = NULL;
+                        Pokemon[i] = '\0';
                         break;
                     }
                 }
