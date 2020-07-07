@@ -5,19 +5,10 @@
 #include "Game.h"
 
 //initializes variables
-Pokemon::Pokemon() {
-    name = "";
-    generation = 0;
-    encounters = 0;
-    game = "";
-    method = "";
-    evolutionStage = 0;
-    breedable = false;
-    wild = false;
-    fish = false;
-    sos = false;
-    special = false;//means that pokemon can't be shiny
-    shinyCharm = false;
+Pokemon::Pokemon()
+:name(""), encounters(0), generation(0), game(""), method(""), evolutionStage(0), family(), breedable(false), wild(false), fish(false), sos(false), special(false), shinyCharm(false)
+{
+    //special means that Pokemon cannot be shiny
 }
 
 //searches for file and pulls the data from the file with the corresponding name
@@ -45,7 +36,7 @@ void Pokemon::generatePokemonData(std::string inputName) {
 
     inputName = "Pokedex/" + inputName + ".txt";
     std::ifstream Data(inputName.c_str());
-    char pause;
+    //char pause;
     if (!Data.is_open())
         return;
     else {

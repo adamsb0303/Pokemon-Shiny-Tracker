@@ -6,13 +6,10 @@
 #include <math.h> //Including for pow() function
 
 //initialization
-Method::Method() {
-	modifier = 1;
-    base = 8192;
-    previousEncounters = 0;
-    searchLevel = 0;
-	shinyCharm = false;
-	lure = false;
+Method::Method()
+:name(), games(), modifier(1), base(8192), previousEncounters(0), searchLevel(0), shinyCharm(false), lure(false)
+{
+	
 }
 
 //Prints the methods from the array that was taken from the game that is being used
