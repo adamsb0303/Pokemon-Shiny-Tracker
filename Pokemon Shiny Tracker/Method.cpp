@@ -31,7 +31,7 @@ void Method::printMethods(std::string methods[5], std::string pokemonName) {
 }
 
 //Sets Method Data for specified game
-void Method::setMethod(std::string method, Game currentGame, std::string selectedPokemon, bool hasCharm) {
+void Method::setMethod(std::string method, Game currentGame, bool hasCharm) {
     if (currentGame.generation >= 5)//doubles shiny chances if its a gen 5 or higher game
         base = base/2;
     if(hasCharm)
