@@ -112,7 +112,7 @@ int main() {
             if (tolower(pause) == 'y') {
                 currentMethod.shinyCharm = true;
             }
-            if (pause == '\n');
+            if (pause == '\n'){};
         }
         currentMethod.setMethod(currentGame.methods[numMethod - 1], currentGame, selectedPokemon.shinyCharm);
         if(currentMethod.name.empty())
@@ -144,13 +144,16 @@ std::string pokemonSpellCheck(std::string input) {
         }
         else
             total = input.length();
-        for (int i = 0; i < input.length() && i < Pokemon.length(); i++) {
+	int inputLength = input.length();
+	int pokemonLength = Pokemon.length();
+        for (int i = 0; i < inputLength && i < pokemonLength; i++) {
             if (tolower(input[i]) == tolower(Pokemon[i])) {
                 same++;
                 Pokemon[i] = '\0';
             }
             else {
-                for (int j = 0; j < check.length(); j++) {
+		int checkLength = check.length();
+                for (int j = 0; j < checkLength; j++) {
                     if (tolower(input[i]) == tolower(Pokemon[j])) {
                         same++;
                         Pokemon[i] = '\0';
