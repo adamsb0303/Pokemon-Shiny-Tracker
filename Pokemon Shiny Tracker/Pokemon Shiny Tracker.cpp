@@ -11,15 +11,14 @@ void displayShinies();
 
 void makeLower(std::string& word);
 
+std::string getPokemonName();
+
 int main() {
     Pokemon selectedPokemon = Pokemon();
     char pause = ' ';
     do {
         //prompt user for the name of the pokemon that they are hunting
-        std::cout << std::string(100, '\n');
-        std::string pokemonName;
-        std::cout << "Please enter the Pokemon that you would like to hunt or enter 'list' to see all previously caught shiny pokemon.\n";
-        getline(std::cin, pokemonName);
+        std::string pokemonName = getPokemonName();
         if (pokemonName.length() > 20)
             std::cout << "The Pokemon was not recognized.";
         else {
@@ -209,4 +208,14 @@ void makeLower(std::string& word){
     {
         word[i] = tolower(word[i]);
     }
+}
+
+//Prompts the user for the name of the Pokémon they are hunting
+std::string getPokemonName()
+{
+	std::cout<<std::string(100, '\n');
+	std::string name;
+	std::cout<<"Please enter the Pokémon that you would like to hunt or enter 'list' to see all previously caught shiny Pokémon."<<std::endl;
+	getline(std::cin, name);
+	return name;
 }
