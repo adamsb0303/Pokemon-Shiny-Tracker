@@ -13,29 +13,19 @@ Pokemon::Pokemon()
 
 //searches for file and pulls the data from the file with the corresponding name
 void Pokemon::generatePokemonData(std::string inputName) {
-    char option;
     //inputName[0] = toupper(inputName[0]);
     if (inputName.compare("Basculin") == 0) {
-        std::cout << "Are you hunting Blue or Red Stripe Basculin? B/R\n";
-        option = getchar();
-        if (tolower(option) == 'b')
-            inputName = inputName + "B";
-        else if (tolower(option == 'r'))
-            inputName = inputName + "R";
+	    Pokemon::getBasculinInfo(inputName);
     }
     if (inputName.compare("Nidoran") == 0) {
-        std::cout << "Are you hunting Male or Female Nidroran? M/F\n";
-        option = getchar();
-        if (tolower(option) == 'm')
-            inputName = inputName + "M";
-        else if (tolower(option == 'f'))
-            inputName = inputName + "F";
+        Pokemon::getNidoranInfo(inputName);
     }
 
     getRegionalVariant(inputName);
 
     inputName = "Pokedex/" + inputName + ".txt";
-    std::ifstream Data(inputName.c_str());
+    std::ifstream Data(inputName);
+    //std::ifstream Data(inputName.c_str());
     //char pause;
     if (!Data.is_open())
         return;
@@ -175,4 +165,38 @@ void Pokemon::pokemonCaught(std::string pokemon, std::string game, std::string m
         pokemonData << "\nfalse\n";
     pokemonData.close();
     Data.close();
+}
+
+void Pokemon::getBasculinInfo(std::string& name)
+{
+	std::cout<<"Are you hunting Blue or Red Stripe Basculin? B/R"<<std::endl;
+	name[0] = tolower(name[0]);
+	char option;
+	std::cin>>option;
+	if(option == 'b' || option == 'B')
+	{
+		name += 'B';
+	}
+
+	else if(option == 'r' || option == 'R')
+	{
+		name += 'R';
+	}
+}
+
+void Pokemon::getNidoranInfo(std::string& name)
+{
+	std::cout<<"Are you hunting Male or Female Nidoran? M/F"<<std::endl;
+	char option;
+	name[0] = tolower(name[0]);
+	std::cin>>option;
+	if(option == 'f' || option == 'F')
+	{
+		name += 'f';
+	}
+
+	else if(option == 'm' || option == 'M')
+	{
+		name += 'm';
+	}
 }
