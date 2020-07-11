@@ -31,6 +31,10 @@ public:
 	void savePokemonData(std::string game, std::string method, bool shinyCharm);
 
 	void pokemonCaught(std::string pokemon, std::string game, std::string method);
+
+private:
+	void getBasculinInfo(std::string& name);
+	void getNidoranInfo(std::string& name);
 };
 
 #endif
