@@ -14,6 +14,10 @@ Pokemon::Pokemon()
 //searches for file and pulls the data from the file with the corresponding name
 void Pokemon::generatePokemonData(std::string inputName) {
     //inputName[0] = toupper(inputName[0]);
+    if(inputName.compare("") == 0)
+    {
+	    return;
+    }
     if (inputName.compare("Basculin") == 0) {
 	    Pokemon::getBasculinInfo(inputName);
     }
