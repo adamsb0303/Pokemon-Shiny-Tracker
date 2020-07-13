@@ -35,7 +35,11 @@ int main() {
             makeLower(pokemonName); //Wrote a function to make more concise
             selectedPokemon.generatePokemonData(pokemonName);
             if (selectedPokemon.name.empty())//if the pokemon wasn't generated, it spell checks the input and trys again
-                selectedPokemon.generatePokemonData(pokemonSpellCheck(pokemonName));
+	    {
+		    std::string buffer = pokemonSpellCheck(pokemonName);
+		    selectedPokemon.generatePokemonData(buffer);
+	    }
+
         }
     } while (selectedPokemon.generation == 0);
 
@@ -176,13 +180,13 @@ std::string pokemonSpellCheck(std::string input) {
         if (tolower(YorN) == 'y') {
             return possible;
         }
-        else
-            return " ";
+       else
+           return "";
     }
     else {
         std::cout << "The Pokemon that you entered was not recognized.";
         YorN = getchar();
-        return " ";
+        return "";
     }
 }
 
